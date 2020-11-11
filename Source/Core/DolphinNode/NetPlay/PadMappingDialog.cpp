@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/NetPlay/PadMappingDialog.h"
+#include "DolphinNode/NetPlay/PadMappingDialog.h"
 
 #include <QComboBox>
 #include <QDialogButtonBox>
@@ -13,7 +13,7 @@
 #include "Core/NetPlayClient.h"
 #include "Core/NetPlayServer.h"
 
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Settings.h"
 
 PadMappingDialog::PadMappingDialog(QWidget* parent) : QDialog(parent)
 {

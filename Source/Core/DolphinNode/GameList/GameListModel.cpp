@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/GameList/GameListModel.h"
+#include "DolphinNode/GameList/GameListModel.h"
 
 #include <QDir>
 #include <QFileInfo>
@@ -12,9 +12,9 @@
 
 #include "DiscIO/Enums.h"
 
-#include "DolphinQt/QtUtils/ImageConverter.h"
-#include "DolphinQt/Resources.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/QtUtils/ImageConverter.h"
+#include "DolphinNode/Resources.h"
+#include "DolphinNode/Settings.h"
 
 #include "UICommon/GameFile.h"
 #include "UICommon/UICommon.h"

@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/FIFO/FIFOPlayerWindow.h"
+#include "DolphinNode/FIFO/FIFOPlayerWindow.h"
 
 #include <QCheckBox>
 #include <QDialogButtonBox>
@@ -23,10 +23,10 @@
 #include "Core/FifoPlayer/FifoPlayer.h"
 #include "Core/FifoPlayer/FifoRecorder.h"
 
-#include "DolphinQt/FIFO/FIFOAnalyzer.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/QtUtils/QueueOnObject.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/FIFO/FIFOAnalyzer.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/QtUtils/QueueOnObject.h"
+#include "DolphinNode/Settings.h"
 
 FIFOPlayerWindow::FIFOPlayerWindow(QWidget* parent) : QDialog(parent)
 {

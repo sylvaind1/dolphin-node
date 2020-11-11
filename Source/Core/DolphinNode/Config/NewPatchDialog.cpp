@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/NewPatchDialog.h"
+#include "DolphinNode/Config/NewPatchDialog.h"
 
 #include <QDialogButtonBox>
 #include <QGridLayout>
@@ -15,7 +15,7 @@
 #include <QVBoxLayout>
 
 #include "Core/PatchEngine.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
 
 NewPatchDialog::NewPatchDialog(QWidget* parent, PatchEngine::Patch& patch)
     : QDialog(parent), m_patch(patch)

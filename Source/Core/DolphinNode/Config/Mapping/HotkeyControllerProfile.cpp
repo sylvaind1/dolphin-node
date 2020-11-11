@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Mapping/HotkeyControllerProfile.h"
+#include "DolphinNode/Config/Mapping/HotkeyControllerProfile.h"
 
 #include <QGridLayout>
 #include <QGroupBox>

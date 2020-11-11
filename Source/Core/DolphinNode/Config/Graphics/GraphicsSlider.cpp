@@ -2,13 +2,13 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Graphics/GraphicsSlider.h"
+#include "DolphinNode/Config/Graphics/GraphicsSlider.h"
 
 #include <QSignalBlocker>
 
 #include "Common/Config/Config.h"
 
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Settings.h"
 
 GraphicsSlider::GraphicsSlider(int minimum, int maximum, const Config::Info<int>& setting, int tick)
     : QSlider(Qt::Horizontal), m_setting(setting)

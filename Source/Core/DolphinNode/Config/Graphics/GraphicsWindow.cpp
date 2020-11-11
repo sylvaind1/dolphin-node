@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Graphics/GraphicsWindow.h"
+#include "DolphinNode/Config/Graphics/GraphicsWindow.h"
 
 #include <QDialogButtonBox>
 #include <QEvent>
@@ -15,13 +15,13 @@
 #include "Core/Config/MainSettings.h"
 #include "Core/ConfigManager.h"
 
-#include "DolphinQt/Config/Graphics/AdvancedWidget.h"
-#include "DolphinQt/Config/Graphics/EnhancementsWidget.h"
-#include "DolphinQt/Config/Graphics/GeneralWidget.h"
-#include "DolphinQt/Config/Graphics/HacksWidget.h"
-#include "DolphinQt/Config/Graphics/SoftwareRendererWidget.h"
-#include "DolphinQt/MainWindow.h"
-#include "DolphinQt/QtUtils/WrapInScrollArea.h"
+#include "DolphinNode/Config/Graphics/AdvancedWidget.h"
+#include "DolphinNode/Config/Graphics/EnhancementsWidget.h"
+#include "DolphinNode/Config/Graphics/GeneralWidget.h"
+#include "DolphinNode/Config/Graphics/HacksWidget.h"
+#include "DolphinNode/Config/Graphics/SoftwareRendererWidget.h"
+#include "DolphinNode/MainWindow.h"
+#include "DolphinNode/QtUtils/WrapInScrollArea.h"
 
 #include "VideoCommon/VideoBackendBase.h"
 #include "VideoCommon/VideoConfig.h"

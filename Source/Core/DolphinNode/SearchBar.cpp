@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/SearchBar.h"
+#include "DolphinNode/SearchBar.h"
 
 #include <QEvent>
 #include <QHBoxLayout>

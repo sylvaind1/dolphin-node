@@ -2,12 +2,12 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/TAS/TASCheckBox.h"
+#include "DolphinNode/TAS/TASCheckBox.h"
 
 #include <QMouseEvent>
 
 #include "Core/Movie.h"
-#include "DolphinQt/TAS/TASInputWindow.h"
+#include "DolphinNode/TAS/TASInputWindow.h"
 
 TASCheckBox::TASCheckBox(const QString& text, TASInputWindow* parent)
     : QCheckBox(text, parent), m_parent(parent)

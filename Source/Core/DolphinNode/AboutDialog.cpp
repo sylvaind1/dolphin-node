@@ -9,8 +9,8 @@
 
 #include "Common/Version.h"
 
-#include "DolphinQt/AboutDialog.h"
-#include "DolphinQt/Resources.h"
+#include "DolphinNode/AboutDialog.h"
+#include "DolphinNode/Resources.h"
 
 AboutDialog::AboutDialog(QWidget* parent) : QDialog(parent)
 {

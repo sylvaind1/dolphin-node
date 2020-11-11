@@ -7,7 +7,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 
-#include "DolphinQt/Config/Mapping/GCMicrophone.h"
+#include "DolphinNode/Config/Mapping/GCMicrophone.h"
 
 #include "InputCommon/InputConfig.h"
 

@@ -7,7 +7,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 
-#include "DolphinQt/Config/Mapping/GCKeyboardEmu.h"
+#include "DolphinNode/Config/Mapping/GCKeyboardEmu.h"
 
 #include "InputCommon/InputConfig.h"
 

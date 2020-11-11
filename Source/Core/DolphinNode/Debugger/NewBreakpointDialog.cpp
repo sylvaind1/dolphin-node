@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Debugger/NewBreakpointDialog.h"
+#include "DolphinNode/Debugger/NewBreakpointDialog.h"
 
 #include <QCheckBox>
 #include <QDialogButtonBox>
@@ -14,8 +14,8 @@
 #include <QRadioButton>
 #include <QVBoxLayout>
 
-#include "DolphinQt/Debugger/BreakpointWidget.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/Debugger/BreakpointWidget.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
 
 NewBreakpointDialog::NewBreakpointDialog(BreakpointWidget* parent)
     : QDialog(parent), m_parent(parent)

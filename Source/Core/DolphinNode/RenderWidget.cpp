@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/RenderWidget.h"
+#include "DolphinNode/RenderWidget.h"
 
 #include <array>
 
@@ -27,10 +27,10 @@
 #include "Core/Core.h"
 #include "Core/State.h"
 
-#include "DolphinQt/Host.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/Resources.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Host.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/Resources.h"
+#include "DolphinNode/Settings.h"
 
 #include "VideoCommon/FreeLookCamera.h"
 #include "VideoCommon/RenderBase.h"

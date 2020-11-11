@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Settings/WiiPane.h"
+#include "DolphinNode/Settings/WiiPane.h"
 
 #include <QCheckBox>
 #include <QComboBox>
@@ -24,8 +24,8 @@
 #include "Core/ConfigManager.h"
 #include "Core/Core.h"
 
-#include "DolphinQt/Settings.h"
-#include "DolphinQt/Settings/USBDeviceAddToWhitelistDialog.h"
+#include "DolphinNode/Settings.h"
+#include "DolphinNode/Settings/USBDeviceAddToWhitelistDialog.h"
 
 #include "UICommon/USBUtils.h"
 

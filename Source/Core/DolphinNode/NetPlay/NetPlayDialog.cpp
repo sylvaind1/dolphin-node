@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/NetPlay/NetPlayDialog.h"
+#include "DolphinNode/NetPlay/NetPlayDialog.h"
 
 #include <QAction>
 #include <QApplication>
@@ -40,16 +40,16 @@
 #include "Core/NetPlayServer.h"
 #include "Core/SyncIdentifier.h"
 
-#include "DolphinQt/GameList/GameListModel.h"
-#include "DolphinQt/NetPlay/ChunkedProgressDialog.h"
-#include "DolphinQt/NetPlay/GameListDialog.h"
-#include "DolphinQt/NetPlay/MD5Dialog.h"
-#include "DolphinQt/NetPlay/PadMappingDialog.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/QtUtils/QueueOnObject.h"
-#include "DolphinQt/QtUtils/RunOnObject.h"
-#include "DolphinQt/Resources.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/GameList/GameListModel.h"
+#include "DolphinNode/NetPlay/ChunkedProgressDialog.h"
+#include "DolphinNode/NetPlay/GameListDialog.h"
+#include "DolphinNode/NetPlay/MD5Dialog.h"
+#include "DolphinNode/NetPlay/PadMappingDialog.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/QtUtils/QueueOnObject.h"
+#include "DolphinNode/QtUtils/RunOnObject.h"
+#include "DolphinNode/Resources.h"
+#include "DolphinNode/Settings.h"
 
 #include "UICommon/DiscordPresence.h"
 #include "UICommon/GameFile.h"

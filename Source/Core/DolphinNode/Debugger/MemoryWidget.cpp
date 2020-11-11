@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Debugger/MemoryWidget.h"
+#include "DolphinNode/Debugger/MemoryWidget.h"
 
 #include <optional>
 #include <string>
@@ -24,10 +24,10 @@
 #include "Common/FileUtil.h"
 #include "Core/ConfigManager.h"
 #include "Core/HW/AddressSpace.h"
-#include "DolphinQt/Debugger/MemoryViewWidget.h"
-#include "DolphinQt/Host.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Debugger/MemoryViewWidget.h"
+#include "DolphinNode/Host.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/Settings.h"
 
 MemoryWidget::MemoryWidget(QWidget* parent) : QDockWidget(parent)
 {

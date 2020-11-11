@@ -4,7 +4,7 @@
 
 #ifdef USE_DISCORD_PRESENCE
 
-#include "DolphinQt/DiscordHandler.h"
+#include "DolphinNode/DiscordHandler.h"
 
 #include <chrono>
 #include <iterator>
@@ -15,8 +15,8 @@
 
 #include "UICommon/DiscordPresence.h"
 
-#include "DolphinQt/DiscordJoinRequestDialog.h"
-#include "DolphinQt/QtUtils/RunOnObject.h"
+#include "DolphinNode/DiscordJoinRequestDialog.h"
+#include "DolphinNode/QtUtils/RunOnObject.h"
 
 DiscordHandler::DiscordHandler(QWidget* parent) : QObject{parent}, m_parent{parent}
 {

@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Debugger/NetworkWidget.h"
+#include "DolphinNode/Debugger/NetworkWidget.h"
 
 #include <QCheckBox>
 #include <QGridLayout>
@@ -21,8 +21,8 @@
 #include "Core/Config/MainSettings.h"
 #include "Core/IOS/Network/SSL.h"
 #include "Core/IOS/Network/Socket.h"
-#include "DolphinQt/Host.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Host.h"
+#include "DolphinNode/Settings.h"
 
 namespace
 {

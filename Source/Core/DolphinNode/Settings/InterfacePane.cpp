@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Settings/InterfacePane.h"
+#include "DolphinNode/Settings/InterfacePane.h"
 
 #include <QCheckBox>
 #include <QComboBox>
@@ -23,9 +23,9 @@
 #include "Core/Config/UISettings.h"
 #include "Core/ConfigManager.h"
 
-#include "DolphinQt/GameList/GameListModel.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/GameList/GameListModel.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/Settings.h"
 
 #include "UICommon/GameFile.h"
 

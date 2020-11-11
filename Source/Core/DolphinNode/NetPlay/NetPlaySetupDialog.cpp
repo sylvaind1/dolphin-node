@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/NetPlay/NetPlaySetupDialog.h"
+#include "DolphinNode/NetPlay/NetPlaySetupDialog.h"
 
 #include <memory>
 
@@ -21,10 +21,10 @@
 #include "Core/Config/NetplaySettings.h"
 #include "Core/NetPlayProto.h"
 
-#include "DolphinQt/GameList/GameListModel.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/QtUtils/UTF8CodePointCountValidator.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/GameList/GameListModel.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/QtUtils/UTF8CodePointCountValidator.h"
+#include "DolphinNode/Settings.h"
 
 #include "UICommon/GameFile.h"
 #include "UICommon/NetPlayIndex.h"

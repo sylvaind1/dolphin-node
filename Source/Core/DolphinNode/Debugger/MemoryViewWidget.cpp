@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Debugger/MemoryViewWidget.h"
+#include "DolphinNode/Debugger/MemoryViewWidget.h"
 
 #include <QApplication>
 #include <QClipboard>
@@ -19,9 +19,9 @@
 #include "Core/HW/AddressSpace.h"
 #include "Core/PowerPC/BreakPoints.h"
 #include "Core/PowerPC/PowerPC.h"
-#include "DolphinQt/Host.h"
-#include "DolphinQt/Resources.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Host.h"
+#include "DolphinNode/Resources.h"
+#include "DolphinNode/Settings.h"
 
 // "Most mouse types work in steps of 15 degrees, in which case the delta value is a multiple of
 // 120; i.e., 120 units * 1/8 = 15 degrees." (http://doc.qt.io/qt-5/qwheelevent.html#angleDelta)

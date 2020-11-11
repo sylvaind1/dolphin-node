@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/NKitWarningDialog.h"
+#include "DolphinNode/NKitWarningDialog.h"
 
 #include <QApplication>
 #include <QCheckBox>
@@ -15,7 +15,7 @@
 
 #include "Common/Config/Config.h"
 #include "Core/Config/MainSettings.h"
-#include "DolphinQt/Resources.h"
+#include "DolphinNode/Resources.h"
 
 bool NKitWarningDialog::ShowUnlessDisabled(QWidget* parent)
 {

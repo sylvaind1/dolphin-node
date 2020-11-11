@@ -2,8 +2,8 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/GameList/ListProxyModel.h"
-#include "DolphinQt/GameList/GameListModel.h"
+#include "DolphinNode/GameList/ListProxyModel.h"
+#include "DolphinNode/GameList/GameListModel.h"
 
 ListProxyModel::ListProxyModel(QObject* parent) : QSortFilterProxyModel(parent)
 {

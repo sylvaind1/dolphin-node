@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Graphics/PostProcessingConfigWindow.h"
+#include "DolphinNode/Config/Graphics/PostProcessingConfigWindow.h"
 
 #include <cmath>
 #include <vector>
@@ -19,7 +19,7 @@
 #include <QVBoxLayout>
 #include <QWidget>
 
-#include "DolphinQt/Config/Graphics/EnhancementsWidget.h"
+#include "DolphinNode/Config/Graphics/EnhancementsWidget.h"
 
 #include "VideoCommon/PostProcessing.h"
 #include "VideoCommon/RenderBase.h"

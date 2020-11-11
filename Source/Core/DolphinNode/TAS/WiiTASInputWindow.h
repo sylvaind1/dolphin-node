@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "DolphinQt/TAS/TASInputWindow.h"
+#include "DolphinNode/TAS/TASInputWindow.h"
 
 namespace WiimoteCommon
 {

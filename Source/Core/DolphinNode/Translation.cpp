@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Translation.h"
+#include "DolphinNode/Translation.h"
 
 #include <QApplication>
 #include <QLocale>
@@ -20,7 +20,7 @@
 
 #include "Core/ConfigManager.h"
 
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
 
 #include "UICommon/UICommon.h"
 
@@ -278,7 +278,7 @@ static bool TryInstallTranslator(const QString& exact_language_code)
         StringFromFormat("/Contents/Resources/%s.lproj/dolphin-emu.mo", lang.c_str())
 #elif defined LINUX_LOCAL_DEV
         File::GetExeDirectory() +
-        StringFromFormat("/../Source/Core/DolphinQt/%s/dolphin-emu.mo", lang.c_str())
+        StringFromFormat("/../Source/Core/DolphinNode/%s/dolphin-emu.mo", lang.c_str())
 #else
         StringFromFormat(DATA_DIR "/../locale/%s/LC_MESSAGES/dolphin-emu.mo", lang.c_str())
 #endif

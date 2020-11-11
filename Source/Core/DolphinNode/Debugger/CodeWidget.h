@@ -8,7 +8,7 @@
 #include <QString>
 
 #include "Common/CommonTypes.h"
-#include "DolphinQt/Debugger/CodeViewWidget.h"
+#include "DolphinNode/Debugger/CodeViewWidget.h"
 
 class QCloseEvent;
 class QLineEdit;

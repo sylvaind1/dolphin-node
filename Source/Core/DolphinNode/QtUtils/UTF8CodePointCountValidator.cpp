@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/QtUtils/UTF8CodePointCountValidator.h"
+#include "DolphinNode/QtUtils/UTF8CodePointCountValidator.h"
 
 #include "Common/StringUtil.h"
 

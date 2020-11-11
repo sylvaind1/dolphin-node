@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Debugger/JITWidget.h"
+#include "DolphinNode/Debugger/JITWidget.h"
 
 #include <QPushButton>
 #include <QSplitter>
@@ -15,8 +15,8 @@
 #include "Core/PowerPC/PPCAnalyst.h"
 #include "UICommon/Disassembler.h"
 
-#include "DolphinQt/Host.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Host.h"
+#include "DolphinNode/Settings.h"
 
 JITWidget::JITWidget(QWidget* parent) : QDockWidget(parent)
 {

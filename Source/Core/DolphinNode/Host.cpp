@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Host.h"
+#include "DolphinNode/Host.h"
 
 #include <QAbstractEventDispatcher>
 #include <QApplication>
@@ -20,8 +20,8 @@
 #include "Core/PowerPC/PowerPC.h"
 #include "Core/State.h"
 
-#include "DolphinQt/QtUtils/QueueOnObject.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/QtUtils/QueueOnObject.h"
+#include "DolphinNode/Settings.h"
 
 #include "InputCommon/ControllerInterface/ControllerInterface.h"
 

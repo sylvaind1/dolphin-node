@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/FilesystemWidget.h"
+#include "DolphinNode/Config/FilesystemWidget.h"
 
 #include <QApplication>
 #include <QCoreApplication>
@@ -21,9 +21,9 @@
 #include "DiscIO/Filesystem.h"
 #include "DiscIO/Volume.h"
 
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/QtUtils/ParallelProgressDialog.h"
-#include "DolphinQt/Resources.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/QtUtils/ParallelProgressDialog.h"
+#include "DolphinNode/Resources.h"
 
 #include "UICommon/UICommon.h"
 

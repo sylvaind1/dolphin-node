@@ -2,14 +2,14 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/GameList/GridProxyModel.h"
+#include "DolphinNode/GameList/GridProxyModel.h"
 
 #include <QImage>
 #include <QPainter>
 #include <QPixmap>
 #include <QSize>
 
-#include "DolphinQt/GameList/GameListModel.h"
+#include "DolphinNode/GameList/GameListModel.h"
 
 #include "Core/Config/UISettings.h"
 

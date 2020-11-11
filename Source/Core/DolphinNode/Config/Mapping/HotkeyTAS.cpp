@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Mapping/HotkeyTAS.h"
+#include "DolphinNode/Config/Mapping/HotkeyTAS.h"
 
 #include <QGroupBox>
 #include <QHBoxLayout>

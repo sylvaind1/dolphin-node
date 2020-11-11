@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/NetPlay/GameListDialog.h"
+#include "DolphinNode/NetPlay/GameListDialog.h"
 
 #include <memory>
 
@@ -10,8 +10,8 @@
 #include <QListWidget>
 #include <QVBoxLayout>
 
-#include "DolphinQt/GameList/GameListModel.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/GameList/GameListModel.h"
+#include "DolphinNode/Settings.h"
 #include "UICommon/GameFile.h"
 
 GameListDialog::GameListDialog(QWidget* parent) : QDialog(parent)

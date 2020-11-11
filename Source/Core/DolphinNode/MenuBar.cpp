@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/MenuBar.h"
+#include "DolphinNode/MenuBar.h"
 
 #include <cinttypes>
 
@@ -48,11 +48,11 @@
 #include "DiscIO/NANDImporter.h"
 #include "DiscIO/WiiSaveBanner.h"
 
-#include "DolphinQt/AboutDialog.h"
-#include "DolphinQt/Host.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/Settings.h"
-#include "DolphinQt/Updater.h"
+#include "DolphinNode/AboutDialog.h"
+#include "DolphinNode/Host.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/Settings.h"
+#include "DolphinNode/Updater.h"
 
 #include "UICommon/AutoUpdate.h"
 #include "UICommon/GameFile.h"

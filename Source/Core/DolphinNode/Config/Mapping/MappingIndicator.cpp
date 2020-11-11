@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Mapping/MappingIndicator.h"
+#include "DolphinNode/Config/Mapping/MappingIndicator.h"
 
 #include <array>
 #include <cmath>
@@ -26,8 +26,8 @@
 #include "InputCommon/ControllerEmu/Setting/NumericSetting.h"
 #include "InputCommon/ControllerInterface/Device.h"
 
-#include "DolphinQt/Config/Mapping/MappingWidget.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/Config/Mapping/MappingWidget.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
 
 namespace
 {

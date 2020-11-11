@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/NetPlay/NetPlayBrowser.h"
+#include "DolphinNode/NetPlay/NetPlayBrowser.h"
 
 #include <QCheckBox>
 #include <QComboBox>
@@ -25,8 +25,8 @@
 #include "Core/Config/NetplaySettings.h"
 #include "Core/ConfigManager.h"
 
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/Settings.h"
 
 NetPlayBrowser::NetPlayBrowser(QWidget* parent) : QDialog(parent)
 {

@@ -2,13 +2,13 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Graphics/GraphicsRadio.h"
+#include "DolphinNode/Config/Graphics/GraphicsRadio.h"
 
 #include <QSignalBlocker>
 
 #include "Common/Config/Config.h"
 
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Settings.h"
 
 GraphicsRadioInt::GraphicsRadioInt(const QString& label, const Config::Info<int>& setting,
                                    int value)

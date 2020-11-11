@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/CheatsManager.h"
+#include "DolphinNode/CheatsManager.h"
 
 #include <algorithm>
 #include <cstring>
@@ -31,10 +31,10 @@
 
 #include "UICommon/GameFile.h"
 
-#include "DolphinQt/Config/ARCodeWidget.h"
-#include "DolphinQt/Config/GeckoCodeWidget.h"
-#include "DolphinQt/GameList/GameListModel.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Config/ARCodeWidget.h"
+#include "DolphinNode/Config/GeckoCodeWidget.h"
+#include "DolphinNode/GameList/GameListModel.h"
+#include "DolphinNode/Settings.h"
 
 constexpr u32 MAX_RESULTS = 50;
 

@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/ControllerInterface/ControllerInterfaceWindow.h"
+#include "DolphinNode/Config/ControllerInterface/ControllerInterfaceWindow.h"
 
 #include <QDialogButtonBox>
 #include <QLabel>
@@ -10,7 +10,7 @@
 #include <QVBoxLayout>
 
 #if defined(CIFACE_USE_DUALSHOCKUDPCLIENT)
-#include "DolphinQt/Config/ControllerInterface/DualShockUDPClientWidget.h"
+#include "DolphinNode/Config/ControllerInterface/DualShockUDPClientWidget.h"
 #endif
 
 ControllerInterfaceWindow::ControllerInterfaceWindow(QWidget* parent) : QDialog(parent)

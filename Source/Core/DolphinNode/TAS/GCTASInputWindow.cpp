@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/TAS/GCTASInputWindow.h"
+#include "DolphinNode/TAS/GCTASInputWindow.h"
 
 #include <QCheckBox>
 #include <QGridLayout>
@@ -14,7 +14,7 @@
 
 #include "Common/CommonTypes.h"
 
-#include "DolphinQt/TAS/TASCheckBox.h"
+#include "DolphinNode/TAS/TASCheckBox.h"
 
 #include "InputCommon/GCPadStatus.h"
 

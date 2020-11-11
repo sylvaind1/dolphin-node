@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/TAS/TASSlider.h"
+#include "DolphinNode/TAS/TASSlider.h"
 
 #include <QMouseEvent>
 

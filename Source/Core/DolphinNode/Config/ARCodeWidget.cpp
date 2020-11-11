@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/ARCodeWidget.h"
+#include "DolphinNode/Config/ARCodeWidget.h"
 
 #include <QButtonGroup>
 #include <QCursor>
@@ -18,8 +18,8 @@
 #include "Core/ActionReplay.h"
 #include "Core/ConfigManager.h"
 
-#include "DolphinQt/Config/CheatCodeEditor.h"
-#include "DolphinQt/Config/CheatWarningWidget.h"
+#include "DolphinNode/Config/CheatCodeEditor.h"
+#include "DolphinNode/Config/CheatWarningWidget.h"
 
 #include "UICommon/GameFile.h"
 

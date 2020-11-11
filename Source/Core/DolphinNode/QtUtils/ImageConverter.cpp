@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/QtUtils/ImageConverter.h"
+#include "DolphinNode/QtUtils/ImageConverter.h"
 
 #include <vector>
 

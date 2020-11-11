@@ -10,10 +10,10 @@
 
 #include "Core/Core.h"
 #include "Core/NetPlayProto.h"
-#include "DolphinQt/Host.h"
-#include "DolphinQt/Resources.h"
-#include "DolphinQt/Settings.h"
-#include "DolphinQt/ToolBar.h"
+#include "DolphinNode/Host.h"
+#include "DolphinNode/Resources.h"
+#include "DolphinNode/Settings.h"
+#include "DolphinNode/ToolBar.h"
 
 static QSize ICON_SIZE(32, 32);
 

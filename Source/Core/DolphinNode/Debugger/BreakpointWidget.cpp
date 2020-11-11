@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Debugger/BreakpointWidget.h"
+#include "DolphinNode/Debugger/BreakpointWidget.h"
 
 #include <QHeaderView>
 #include <QTableWidget>
@@ -17,9 +17,9 @@
 #include "Core/PowerPC/PPCSymbolDB.h"
 #include "Core/PowerPC/PowerPC.h"
 
-#include "DolphinQt/Debugger/NewBreakpointDialog.h"
-#include "DolphinQt/Resources.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Debugger/NewBreakpointDialog.h"
+#include "DolphinNode/Resources.h"
+#include "DolphinNode/Settings.h"
 
 BreakpointWidget::BreakpointWidget(QWidget* parent) : QDockWidget(parent)
 {

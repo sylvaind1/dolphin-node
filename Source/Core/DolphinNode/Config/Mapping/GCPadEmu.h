@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "DolphinQt/Config/Mapping/MappingWidget.h"
+#include "DolphinNode/Config/Mapping/MappingWidget.h"
 
 class GCPadEmu final : public MappingWidget
 {

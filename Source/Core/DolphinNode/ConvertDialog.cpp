@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/ConvertDialog.h"
+#include "DolphinNode/ConvertDialog.h"
 
 #include <algorithm>
 #include <functional>
@@ -27,8 +27,8 @@
 #include "DiscIO/Blob.h"
 #include "DiscIO/ScrubbedBlob.h"
 #include "DiscIO/WIABlob.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/QtUtils/ParallelProgressDialog.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/QtUtils/ParallelProgressDialog.h"
 #include "UICommon/GameFile.h"
 #include "UICommon/UICommon.h"
 

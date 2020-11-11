@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/PatchesWidget.h"
+#include "DolphinNode/Config/PatchesWidget.h"
 
 #include <QGridLayout>
 #include <QListWidget>
@@ -15,7 +15,7 @@
 #include "Core/ConfigManager.h"
 #include "Core/PatchEngine.h"
 
-#include "DolphinQt/Config/NewPatchDialog.h"
+#include "DolphinNode/Config/NewPatchDialog.h"
 
 #include "UICommon/GameFile.h"
 

@@ -28,11 +28,11 @@
 #include "Core/HW/WiimoteEmu/Camera.h"
 #include "Core/HW/WiimoteReal/WiimoteReal.h"
 
-#include "DolphinQt/QtUtils/AspectRatioWidget.h"
-#include "DolphinQt/QtUtils/QueueOnObject.h"
-#include "DolphinQt/TAS/IRWidget.h"
-#include "DolphinQt/TAS/TASCheckBox.h"
-#include "DolphinQt/TAS/WiiTASInputWindow.h"
+#include "DolphinNode/QtUtils/AspectRatioWidget.h"
+#include "DolphinNode/QtUtils/QueueOnObject.h"
+#include "DolphinNode/TAS/IRWidget.h"
+#include "DolphinNode/TAS/TASCheckBox.h"
+#include "DolphinNode/TAS/WiiTASInputWindow.h"
 
 #include "InputCommon/InputConfig.h"
 

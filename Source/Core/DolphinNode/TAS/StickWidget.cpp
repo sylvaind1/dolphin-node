@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/TAS/StickWidget.h"
+#include "DolphinNode/TAS/StickWidget.h"
 
 #include <algorithm>
 #include <cmath>

@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/GCMemcardCreateNewDialog.h"
+#include "DolphinNode/GCMemcardCreateNewDialog.h"
 
 #include <QComboBox>
 #include <QDialogButtonBox>

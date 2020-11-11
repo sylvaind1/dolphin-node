@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Mapping/GCPadWiiUConfigDialog.h"
+#include "DolphinNode/Config/Mapping/GCPadWiiUConfigDialog.h"
 
 #include <QCheckBox>
 #include <QDialogButtonBox>
@@ -10,7 +10,7 @@
 #include <QVBoxLayout>
 
 #include "Core/ConfigManager.h"
-#include "DolphinQt/QtUtils/QueueOnObject.h"
+#include "DolphinNode/QtUtils/QueueOnObject.h"
 
 #include "InputCommon/GCAdapter.h"
 

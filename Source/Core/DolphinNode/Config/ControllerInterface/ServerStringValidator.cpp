@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/ControllerInterface/ServerStringValidator.h"
+#include "DolphinNode/Config/ControllerInterface/ServerStringValidator.h"
 
 ServerStringValidator::ServerStringValidator(QObject* parent) : QValidator(parent)
 {

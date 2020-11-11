@@ -18,8 +18,8 @@
 #include "Core/Config/MainSettings.h"
 #include "Core/Config/UISettings.h"
 
-#include "DolphinQt/Settings.h"
-#include "DolphinQt/Settings/PathPane.h"
+#include "DolphinNode/Settings.h"
+#include "DolphinNode/Settings/PathPane.h"
 
 PathPane::PathPane(QWidget* parent) : QWidget(parent)
 {

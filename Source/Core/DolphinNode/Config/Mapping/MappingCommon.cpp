@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Mapping/MappingCommon.h"
+#include "DolphinNode/Config/Mapping/MappingCommon.h"
 
 #include <tuple>
 #include <vector>
@@ -13,7 +13,7 @@
 #include <QString>
 #include <QTimer>
 
-#include "DolphinQt/QtUtils/BlockUserInputFilter.h"
+#include "DolphinNode/QtUtils/BlockUserInputFilter.h"
 #include "InputCommon/ControlReference/ControlReference.h"
 
 #include "Common/Thread.h"

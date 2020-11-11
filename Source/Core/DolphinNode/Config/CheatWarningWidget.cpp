@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/CheatWarningWidget.h"
+#include "DolphinNode/Config/CheatWarningWidget.h"
 
 #include <QHBoxLayout>
 #include <QLabel>
@@ -13,7 +13,7 @@
 #include "Core/ConfigManager.h"
 #include "Core/Core.h"
 
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Settings.h"
 
 CheatWarningWidget::CheatWarningWidget(const std::string& game_id, bool restart_required,
                                        QWidget* parent)

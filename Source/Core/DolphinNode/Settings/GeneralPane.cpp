@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Settings/GeneralPane.h"
+#include "DolphinNode/Settings/GeneralPane.h"
 
 #include <map>
 
@@ -23,8 +23,8 @@
 #include "Core/Core.h"
 #include "Core/PowerPC/PowerPC.h"
 
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/Settings.h"
 
 #include "UICommon/AutoUpdate.h"
 #ifdef USE_DISCORD_PRESENCE

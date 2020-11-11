@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/HotkeyScheduler.h"
+#include "DolphinNode/HotkeyScheduler.h"
 
 #include <algorithm>
 #include <cmath>
@@ -25,7 +25,7 @@
 #include "Core/IOS/USB/Bluetooth/BTBase.h"
 #include "Core/State.h"
 
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Settings.h"
 
 #include "InputCommon/ControlReference/ControlReference.h"
 #include "InputCommon/ControllerInterface/ControllerInterface.h"

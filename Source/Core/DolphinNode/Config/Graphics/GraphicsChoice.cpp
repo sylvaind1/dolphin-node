@@ -2,13 +2,13 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Graphics/GraphicsChoice.h"
+#include "DolphinNode/Config/Graphics/GraphicsChoice.h"
 
 #include <QSignalBlocker>
 
 #include "Common/Config/Config.h"
 
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Settings.h"
 
 GraphicsChoice::GraphicsChoice(const QStringList& options, const Config::Info<int>& setting)
     : m_setting(setting)

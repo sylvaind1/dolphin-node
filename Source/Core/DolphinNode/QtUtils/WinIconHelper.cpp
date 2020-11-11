@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/QtUtils/WinIconHelper.h"
+#include "DolphinNode/QtUtils/WinIconHelper.h"
 
 #ifdef _WIN32
 

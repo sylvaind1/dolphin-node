@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/QtUtils/WrapInScrollArea.h"
+#include "DolphinNode/QtUtils/WrapInScrollArea.h"
 
 #include <QFrame>
 #include <QLayout>

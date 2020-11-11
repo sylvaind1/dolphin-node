@@ -11,11 +11,11 @@
 
 #include "Core/ConfigManager.h"
 
-#include "DolphinQt/Resources.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Resources.h"
+#include "DolphinNode/Settings.h"
 
 #ifdef _WIN32
-#include "DolphinQt/QtUtils/WinIconHelper.h"
+#include "DolphinNode/QtUtils/WinIconHelper.h"
 #endif
 
 QList<QPixmap> Resources::m_platforms;

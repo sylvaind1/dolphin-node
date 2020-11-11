@@ -4,7 +4,7 @@
 
 #include <QFileOpenEvent>
 
-#include "DolphinQt/QtUtils/FileOpenEventFilter.h"
+#include "DolphinNode/QtUtils/FileOpenEventFilter.h"
 
 FileOpenEventFilter::FileOpenEventFilter(QObject* event_source) : QObject(event_source)
 {

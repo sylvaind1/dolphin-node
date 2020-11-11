@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/LogConfigWidget.h"
+#include "DolphinNode/Config/LogConfigWidget.h"
 
 #include <QCheckBox>
 #include <QGroupBox>
@@ -16,7 +16,7 @@
 
 #include "Core/ConfigManager.h"
 
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Settings.h"
 
 LogConfigWidget::LogConfigWidget(QWidget* parent) : QDockWidget(parent)
 {

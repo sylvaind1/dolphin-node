@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/ResourcePackManager.h"
+#include "DolphinNode/ResourcePackManager.h"
 
 #include <QDesktopServices>
 #include <QDialogButtonBox>
@@ -13,7 +13,7 @@
 #include <QUrl>
 
 #include "Common/FileUtil.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
 #include "UICommon/ResourcePack/Manager.h"
 
 ResourcePackManager::ResourcePackManager(QWidget* widget) : QDialog(widget)

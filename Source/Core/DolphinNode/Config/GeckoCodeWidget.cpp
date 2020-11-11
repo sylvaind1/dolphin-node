@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/GeckoCodeWidget.h"
+#include "DolphinNode/Config/GeckoCodeWidget.h"
 
 #include <QCursor>
 #include <QFontDatabase>
@@ -22,9 +22,9 @@
 #include "Core/GeckoCode.h"
 #include "Core/GeckoCodeConfig.h"
 
-#include "DolphinQt/Config/CheatCodeEditor.h"
-#include "DolphinQt/Config/CheatWarningWidget.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/Config/CheatCodeEditor.h"
+#include "DolphinNode/Config/CheatWarningWidget.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
 
 #include "UICommon/GameFile.h"
 

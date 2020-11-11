@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/QtUtils/SignalDaemon.h"
+#include "DolphinNode/QtUtils/SignalDaemon.h"
 
 #include <sys/socket.h>
 #include <sys/types.h>

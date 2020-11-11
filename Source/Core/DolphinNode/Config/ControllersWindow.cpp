@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/ControllersWindow.h"
+#include "DolphinNode/Config/ControllersWindow.h"
 
 #include <QApplication>
 #include <QBoxLayout>
@@ -31,12 +31,12 @@
 #include "Core/IOS/IOS.h"
 #include "Core/IOS/USB/Bluetooth/BTReal.h"
 
-#include "DolphinQt/Config/ControllerInterface/ControllerInterfaceWindow.h"
-#include "DolphinQt/Config/Mapping/GCPadWiiUConfigDialog.h"
-#include "DolphinQt/Config/Mapping/MappingWindow.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/QtUtils/WrapInScrollArea.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Config/ControllerInterface/ControllerInterfaceWindow.h"
+#include "DolphinNode/Config/Mapping/GCPadWiiUConfigDialog.h"
+#include "DolphinNode/Config/Mapping/MappingWindow.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/QtUtils/WrapInScrollArea.h"
+#include "DolphinNode/Settings.h"
 
 #include "InputCommon/GCAdapter.h"
 

@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Settings/USBDeviceAddToWhitelistDialog.h"
+#include "DolphinNode/Settings/USBDeviceAddToWhitelistDialog.h"
 
 #include <QButtonGroup>
 #include <QDialog>
@@ -22,8 +22,8 @@
 
 #include "Core/ConfigManager.h"
 
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/Settings/WiiPane.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/Settings/WiiPane.h"
 
 #include "UICommon/USBUtils.h"
 

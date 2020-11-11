@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/NetPlay/MD5Dialog.h"
+#include "DolphinNode/NetPlay/MD5Dialog.h"
 
 #include <algorithm>
 #include <functional>
@@ -17,7 +17,7 @@
 #include "Core/NetPlayClient.h"
 #include "Core/NetPlayServer.h"
 
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Settings.h"
 
 static QString GetPlayerNameFromPID(int pid)
 {

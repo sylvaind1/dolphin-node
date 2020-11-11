@@ -2,11 +2,11 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Mapping/MappingNumeric.h"
+#include "DolphinNode/Config/Mapping/MappingNumeric.h"
 
 #include <limits>
 
-#include "DolphinQt/Config/Mapping/MappingWidget.h"
+#include "DolphinNode/Config/Mapping/MappingWidget.h"
 
 #include "InputCommon/ControllerEmu/ControllerEmu.h"
 #include "InputCommon/ControllerInterface/ControllerInterface.h"

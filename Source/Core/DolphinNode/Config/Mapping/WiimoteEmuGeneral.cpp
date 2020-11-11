@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Mapping/WiimoteEmuGeneral.h"
+#include "DolphinNode/Config/Mapping/WiimoteEmuGeneral.h"
 
 #include <QComboBox>
 #include <QFormLayout>
@@ -14,8 +14,8 @@
 #include "Core/HW/Wiimote.h"
 #include "Core/HW/WiimoteEmu/WiimoteEmu.h"
 
-#include "DolphinQt/Config/Mapping/MappingWindow.h"
-#include "DolphinQt/Config/Mapping/WiimoteEmuExtension.h"
+#include "DolphinNode/Config/Mapping/MappingWindow.h"
+#include "DolphinNode/Config/Mapping/WiimoteEmuExtension.h"
 
 #include "InputCommon/ControllerEmu/ControlGroup/Attachments.h"
 #include "InputCommon/InputConfig.h"

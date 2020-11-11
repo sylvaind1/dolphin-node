@@ -4,7 +4,7 @@
 
 #ifdef USE_DISCORD_PRESENCE
 
-#include "DolphinQt/DiscordJoinRequestDialog.h"
+#include "DolphinNode/DiscordJoinRequestDialog.h"
 
 #include <QGridLayout>
 #include <QLabel>

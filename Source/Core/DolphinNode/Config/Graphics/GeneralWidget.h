@@ -5,7 +5,7 @@
 #pragma once
 
 #include <array>
-#include "DolphinQt/Config/Graphics/GraphicsWidget.h"
+#include "DolphinNode/Config/Graphics/GraphicsWidget.h"
 
 class GraphicsWindow;
 class QCheckBox;

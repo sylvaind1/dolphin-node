@@ -4,7 +4,7 @@
 
 #include <QEvent>
 
-#include "DolphinQt/QtUtils/DoubleClickEventFilter.h"
+#include "DolphinNode/QtUtils/DoubleClickEventFilter.h"
 
 bool DoubleClickEventFilter::eventFilter(QObject* object, QEvent* event)
 {

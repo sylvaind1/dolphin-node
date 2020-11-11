@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/ControllerInterface/DualShockUDPClientWidget.h"
+#include "DolphinNode/Config/ControllerInterface/DualShockUDPClientWidget.h"
 
 #include <fmt/format.h>
 
@@ -13,7 +13,7 @@
 #include <QPushButton>
 
 #include "Common/Config/Config.h"
-#include "DolphinQt/Config/ControllerInterface/DualShockUDPClientAddServerDialog.h"
+#include "DolphinNode/Config/ControllerInterface/DualShockUDPClientAddServerDialog.h"
 #include "InputCommon/ControllerInterface/DualShockUDPClient/DualShockUDPClient.h"
 
 DualShockUDPClientWidget::DualShockUDPClientWidget()

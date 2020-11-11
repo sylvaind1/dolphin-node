@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Graphics/HacksWidget.h"
+#include "DolphinNode/Config/Graphics/HacksWidget.h"
 
 #include <QGridLayout>
 #include <QGroupBox>
@@ -14,10 +14,10 @@
 #include "Core/Config/MainSettings.h"
 #include "Core/ConfigManager.h"
 
-#include "DolphinQt/Config/Graphics/GraphicsBool.h"
-#include "DolphinQt/Config/Graphics/GraphicsSlider.h"
-#include "DolphinQt/Config/Graphics/GraphicsWindow.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Config/Graphics/GraphicsBool.h"
+#include "DolphinNode/Config/Graphics/GraphicsSlider.h"
+#include "DolphinNode/Config/Graphics/GraphicsWindow.h"
+#include "DolphinNode/Settings.h"
 
 #include "VideoCommon/VideoConfig.h"
 

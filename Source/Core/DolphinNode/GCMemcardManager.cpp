@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/GCMemcardManager.h"
+#include "DolphinNode/GCMemcardManager.h"
 
 #include <algorithm>
 
@@ -30,8 +30,8 @@
 #include "Core/Config/MainSettings.h"
 #include "Core/HW/GCMemcard/GCMemcard.h"
 
-#include "DolphinQt/GCMemcardCreateNewDialog.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/GCMemcardCreateNewDialog.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
 
 constexpr float ROW_HEIGHT = 28;
 

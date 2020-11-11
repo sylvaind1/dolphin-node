@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Graphics/GeneralWidget.h"
+#include "DolphinNode/Config/Graphics/GeneralWidget.h"
 
 #include <QCheckBox>
 #include <QComboBox>
@@ -19,12 +19,12 @@
 #include "Core/ConfigManager.h"
 #include "Core/Core.h"
 
-#include "DolphinQt/Config/Graphics/GraphicsBool.h"
-#include "DolphinQt/Config/Graphics/GraphicsChoice.h"
-#include "DolphinQt/Config/Graphics/GraphicsRadio.h"
-#include "DolphinQt/Config/Graphics/GraphicsWindow.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Config/Graphics/GraphicsBool.h"
+#include "DolphinNode/Config/Graphics/GraphicsChoice.h"
+#include "DolphinNode/Config/Graphics/GraphicsRadio.h"
+#include "DolphinNode/Config/Graphics/GraphicsWindow.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/Settings.h"
 
 #include "UICommon/VideoUtils.h"
 

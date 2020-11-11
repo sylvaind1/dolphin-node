@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Settings/GameCubePane.h"
+#include "DolphinNode/Settings/GameCubePane.h"
 
 #include <QCheckBox>
 #include <QComboBox>
@@ -27,9 +27,9 @@
 #include "Core/HW/EXI/EXI.h"
 #include "Core/HW/GCMemcard/GCMemcard.h"
 
-#include "DolphinQt/Config/Mapping/MappingWindow.h"
-#include "DolphinQt/GCMemcardManager.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/Config/Mapping/MappingWindow.h"
+#include "DolphinNode/GCMemcardManager.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
 
 enum
 {

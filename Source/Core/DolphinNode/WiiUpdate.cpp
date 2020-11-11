@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/WiiUpdate.h"
+#include "DolphinNode/WiiUpdate.h"
 
 #include <cinttypes>
 #include <future>
@@ -20,8 +20,8 @@
 
 #include "DiscIO/NANDImporter.h"
 
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/QtUtils/QueueOnObject.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/QtUtils/QueueOnObject.h"
 
 namespace WiiUpdate
 {

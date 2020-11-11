@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/GameList/GameTracker.h"
+#include "DolphinNode/GameList/GameTracker.h"
 
 #include <QDir>
 #include <QDirIterator>
@@ -14,10 +14,10 @@
 
 #include "DiscIO/DirectoryBlob.h"
 
-#include "DolphinQt/QtUtils/QueueOnObject.h"
-#include "DolphinQt/QtUtils/RunOnObject.h"
+#include "DolphinNode/QtUtils/QueueOnObject.h"
+#include "DolphinNode/QtUtils/RunOnObject.h"
 
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Settings.h"
 
 #include "UICommon/GameFile.h"
 

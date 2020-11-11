@@ -48,7 +48,7 @@
 **
 ****************************************************************************/
 
-#include "DolphinQt/QtUtils/FlowLayout.h"
+#include "DolphinNode/QtUtils/FlowLayout.h"
 
 #include <QtWidgets>
 

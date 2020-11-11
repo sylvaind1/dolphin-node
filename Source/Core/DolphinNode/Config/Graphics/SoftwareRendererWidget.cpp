@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Graphics/SoftwareRendererWidget.h"
+#include "DolphinNode/Config/Graphics/SoftwareRendererWidget.h"
 
 #include <QComboBox>
 #include <QGridLayout>
@@ -16,9 +16,9 @@
 #include "Core/ConfigManager.h"
 #include "Core/Core.h"
 
-#include "DolphinQt/Config/Graphics/GraphicsBool.h"
-#include "DolphinQt/Config/Graphics/GraphicsWindow.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Config/Graphics/GraphicsBool.h"
+#include "DolphinNode/Config/Graphics/GraphicsWindow.h"
+#include "DolphinNode/Settings.h"
 
 #include "UICommon/VideoUtils.h"
 

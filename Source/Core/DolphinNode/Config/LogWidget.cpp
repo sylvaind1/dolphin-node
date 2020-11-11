@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/LogWidget.h"
+#include "DolphinNode/Config/LogWidget.h"
 
 #include <QCheckBox>
 #include <QComboBox>
@@ -15,7 +15,7 @@
 
 #include "Core/ConfigManager.h"
 
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Settings.h"
 
 // Delay in ms between calls of UpdateLog()
 constexpr int UPDATE_LOG_DELAY = 100;

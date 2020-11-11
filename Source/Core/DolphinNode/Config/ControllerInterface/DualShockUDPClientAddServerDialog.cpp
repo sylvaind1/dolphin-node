@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/ControllerInterface/DualShockUDPClientAddServerDialog.h"
+#include "DolphinNode/Config/ControllerInterface/DualShockUDPClientAddServerDialog.h"
 
 #include <fmt/format.h>
 
@@ -18,7 +18,7 @@
 #include <QWidget>
 
 #include "Common/Config/Config.h"
-#include "DolphinQt/Config/ControllerInterface/ServerStringValidator.h"
+#include "DolphinNode/Config/ControllerInterface/ServerStringValidator.h"
 #include "InputCommon/ControllerInterface/DualShockUDPClient/DualShockUDPClient.h"
 
 DualShockUDPClientAddServerDialog::DualShockUDPClientAddServerDialog(QWidget* parent)

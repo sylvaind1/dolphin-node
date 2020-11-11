@@ -5,7 +5,7 @@
 #pragma once
 
 #include "Common/Flag.h"
-#include "DolphinQt/QtUtils/ElidedButton.h"
+#include "DolphinNode/QtUtils/ElidedButton.h"
 
 class ControlReference;
 class MappingWidget;

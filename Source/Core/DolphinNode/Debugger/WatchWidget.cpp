@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Debugger/WatchWidget.h"
+#include "DolphinNode/Debugger/WatchWidget.h"
 
 #include <QHeaderView>
 #include <QMenu>
@@ -17,10 +17,10 @@
 #include "Core/PowerPC/MMU.h"
 #include "Core/PowerPC/PowerPC.h"
 
-#include "DolphinQt/Host.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/Resources.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Host.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/Resources.h"
+#include "DolphinNode/Settings.h"
 
 WatchWidget::WatchWidget(QWidget* parent) : QDockWidget(parent)
 {

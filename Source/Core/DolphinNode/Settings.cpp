@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Settings.h"
 
 #include <QApplication>
 #include <QDir>
@@ -24,8 +24,8 @@
 #include "Core/NetPlayClient.h"
 #include "Core/NetPlayServer.h"
 
-#include "DolphinQt/GameList/GameListModel.h"
-#include "DolphinQt/QtUtils/QueueOnObject.h"
+#include "DolphinNode/GameList/GameListModel.h"
+#include "DolphinNode/QtUtils/QueueOnObject.h"
 
 #include "InputCommon/ControllerInterface/ControllerInterface.h"
 #include "InputCommon/InputConfig.h"

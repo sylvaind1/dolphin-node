@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/CheatCodeEditor.h"
+#include "DolphinNode/Config/CheatCodeEditor.h"
 
 #include <QDialogButtonBox>
 #include <QFontDatabase>
@@ -16,7 +16,7 @@
 #include "Core/ActionReplay.h"
 #include "Core/GeckoCodeConfig.h"
 
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
 
 CheatCodeEditor::CheatCodeEditor(QWidget* parent) : QDialog(parent)
 {

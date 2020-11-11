@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Updater.h"
+#include "DolphinNode/Updater.h"
 
 #include <QCheckBox>
 #include <QDialog>
@@ -14,8 +14,8 @@
 
 #include "Common/Version.h"
 
-#include "DolphinQt/QtUtils/RunOnObject.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/QtUtils/RunOnObject.h"
+#include "DolphinNode/Settings.h"
 
 Updater::Updater(QWidget* parent) : m_parent(parent)
 {

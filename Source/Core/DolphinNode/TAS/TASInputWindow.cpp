@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/TAS/TASInputWindow.h"
+#include "DolphinNode/TAS/TASInputWindow.h"
 
 #include <cmath>
 
@@ -17,12 +17,12 @@
 
 #include "Common/CommonTypes.h"
 
-#include "DolphinQt/QtUtils/AspectRatioWidget.h"
-#include "DolphinQt/QtUtils/QueueOnObject.h"
-#include "DolphinQt/Resources.h"
-#include "DolphinQt/TAS/StickWidget.h"
-#include "DolphinQt/TAS/TASCheckBox.h"
-#include "DolphinQt/TAS/TASSlider.h"
+#include "DolphinNode/QtUtils/AspectRatioWidget.h"
+#include "DolphinNode/QtUtils/QueueOnObject.h"
+#include "DolphinNode/Resources.h"
+#include "DolphinNode/TAS/StickWidget.h"
+#include "DolphinNode/TAS/TASCheckBox.h"
+#include "DolphinNode/TAS/TASSlider.h"
 
 #include "InputCommon/GCPadStatus.h"
 

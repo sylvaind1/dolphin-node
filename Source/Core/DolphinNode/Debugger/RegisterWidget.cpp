@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Debugger/RegisterWidget.h"
+#include "DolphinNode/Debugger/RegisterWidget.h"
 
 #include <utility>
 
@@ -14,8 +14,8 @@
 #include "Core/Core.h"
 #include "Core/HW/ProcessorInterface.h"
 #include "Core/PowerPC/PowerPC.h"
-#include "DolphinQt/Host.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Host.h"
+#include "DolphinNode/Settings.h"
 
 RegisterWidget::RegisterWidget(QWidget* parent) : QDockWidget(parent)
 {

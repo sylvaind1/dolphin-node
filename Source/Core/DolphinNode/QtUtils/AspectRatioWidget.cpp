@@ -5,7 +5,7 @@
 // Based on:
 // https://stackoverflow.com/questions/30005540/keeping-the-aspect-ratio-of-a-sub-classed-qwidget-during-resize
 
-#include "DolphinQt/QtUtils/AspectRatioWidget.h"
+#include "DolphinNode/QtUtils/AspectRatioWidget.h"
 
 #include <QBoxLayout>
 #include <QResizeEvent>

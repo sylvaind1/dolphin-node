@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Debugger/CodeViewWidget.h"
+#include "DolphinNode/Debugger/CodeViewWidget.h"
 
 #include <algorithm>
 #include <cmath>
@@ -29,10 +29,10 @@
 #include "Core/PowerPC/PPCAnalyst.h"
 #include "Core/PowerPC/PPCSymbolDB.h"
 #include "Core/PowerPC/PowerPC.h"
-#include "DolphinQt/Debugger/PatchInstructionDialog.h"
-#include "DolphinQt/Host.h"
-#include "DolphinQt/Resources.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Debugger/PatchInstructionDialog.h"
+#include "DolphinNode/Host.h"
+#include "DolphinNode/Resources.h"
+#include "DolphinNode/Settings.h"
 
 struct CodeViewBranch
 {

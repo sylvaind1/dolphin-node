@@ -15,7 +15,7 @@
 
 #include "Core/TitleDatabase.h"
 
-#include "DolphinQt/GameList/GameTracker.h"
+#include "DolphinNode/GameList/GameTracker.h"
 
 namespace UICommon
 {

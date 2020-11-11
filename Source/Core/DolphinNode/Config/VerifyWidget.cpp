@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/VerifyWidget.h"
+#include "DolphinNode/Config/VerifyWidget.h"
 
 #include <future>
 #include <memory>
@@ -19,7 +19,7 @@
 #include "Common/CommonTypes.h"
 #include "DiscIO/Volume.h"
 #include "DiscIO/VolumeVerifier.h"
-#include "DolphinQt/QtUtils/ParallelProgressDialog.h"
+#include "DolphinNode/QtUtils/ParallelProgressDialog.h"
 
 VerifyWidget::VerifyWidget(std::shared_ptr<DiscIO::Volume> volume) : m_volume(std::move(volume))
 {

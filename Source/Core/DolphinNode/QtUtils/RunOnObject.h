@@ -13,7 +13,7 @@
 #include <utility>
 
 #include "Common/Event.h"
-#include "DolphinQt/QtUtils/QueueOnObject.h"
+#include "DolphinNode/QtUtils/QueueOnObject.h"
 
 class QObject;
 

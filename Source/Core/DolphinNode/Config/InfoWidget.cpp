@@ -18,8 +18,8 @@
 #include "DiscIO/Blob.h"
 #include "DiscIO/Enums.h"
 
-#include "DolphinQt/Config/InfoWidget.h"
-#include "DolphinQt/QtUtils/ImageConverter.h"
+#include "DolphinNode/Config/InfoWidget.h"
+#include "DolphinNode/QtUtils/ImageConverter.h"
 
 #include "UICommon/UICommon.h"
 

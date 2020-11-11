@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/GameConfigWidget.h"
+#include "DolphinNode/Config/GameConfigWidget.h"
 
 #include <QCheckBox>
 #include <QComboBox>
@@ -20,8 +20,8 @@
 #include "Core/ConfigLoaders/GameConfigLoader.h"
 #include "Core/ConfigManager.h"
 
-#include "DolphinQt/Config/GameConfigEdit.h"
-#include "DolphinQt/Config/Graphics/GraphicsSlider.h"
+#include "DolphinNode/Config/GameConfigEdit.h"
+#include "DolphinNode/Config/Graphics/GraphicsSlider.h"
 
 #include "UICommon/GameFile.h"
 

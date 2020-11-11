@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/GameConfigHighlighter.h"
+#include "DolphinNode/Config/GameConfigHighlighter.h"
 
 struct HighlightingRule
 {

@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Graphics/AdvancedWidget.h"
+#include "DolphinNode/Config/Graphics/AdvancedWidget.h"
 
 #include <QCheckBox>
 #include <QGridLayout>
@@ -16,11 +16,11 @@
 #include "Core/ConfigManager.h"
 #include "Core/Core.h"
 
-#include "DolphinQt/Config/Graphics/GraphicsBool.h"
-#include "DolphinQt/Config/Graphics/GraphicsChoice.h"
-#include "DolphinQt/Config/Graphics/GraphicsInteger.h"
-#include "DolphinQt/Config/Graphics/GraphicsWindow.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Config/Graphics/GraphicsBool.h"
+#include "DolphinNode/Config/Graphics/GraphicsChoice.h"
+#include "DolphinNode/Config/Graphics/GraphicsInteger.h"
+#include "DolphinNode/Config/Graphics/GraphicsWindow.h"
+#include "DolphinNode/Settings.h"
 
 #include "VideoCommon/VideoConfig.h"
 

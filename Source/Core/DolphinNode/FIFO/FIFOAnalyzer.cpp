@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/FIFO/FIFOAnalyzer.h"
+#include "DolphinNode/FIFO/FIFOAnalyzer.h"
 
 #include <QGroupBox>
 #include <QHBoxLayout>
@@ -20,7 +20,7 @@
 #include "Common/Swap.h"
 #include "Core/FifoPlayer/FifoPlayer.h"
 
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Settings.h"
 
 #include "VideoCommon/BPMemory.h"
 #include "VideoCommon/OpcodeDecoding.h"

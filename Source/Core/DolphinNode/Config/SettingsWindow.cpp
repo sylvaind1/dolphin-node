@@ -7,17 +7,17 @@
 #include <QTabWidget>
 #include <QVBoxLayout>
 
-#include "DolphinQt/Config/SettingsWindow.h"
-#include "DolphinQt/QtUtils/WrapInScrollArea.h"
-#include "DolphinQt/Resources.h"
-#include "DolphinQt/Settings.h"
-#include "DolphinQt/Settings/AdvancedPane.h"
-#include "DolphinQt/Settings/AudioPane.h"
-#include "DolphinQt/Settings/GameCubePane.h"
-#include "DolphinQt/Settings/GeneralPane.h"
-#include "DolphinQt/Settings/InterfacePane.h"
-#include "DolphinQt/Settings/PathPane.h"
-#include "DolphinQt/Settings/WiiPane.h"
+#include "DolphinNode/Config/SettingsWindow.h"
+#include "DolphinNode/QtUtils/WrapInScrollArea.h"
+#include "DolphinNode/Resources.h"
+#include "DolphinNode/Settings.h"
+#include "DolphinNode/Settings/AdvancedPane.h"
+#include "DolphinNode/Settings/AudioPane.h"
+#include "DolphinNode/Settings/GameCubePane.h"
+#include "DolphinNode/Settings/GeneralPane.h"
+#include "DolphinNode/Settings/InterfacePane.h"
+#include "DolphinNode/Settings/PathPane.h"
+#include "DolphinNode/Settings/WiiPane.h"
 
 #include "Core/Core.h"
 

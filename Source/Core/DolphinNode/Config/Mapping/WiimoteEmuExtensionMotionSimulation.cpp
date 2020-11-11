@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Mapping/WiimoteEmuExtensionMotionSimulation.h"
+#include "DolphinNode/Config/Mapping/WiimoteEmuExtensionMotionSimulation.h"
 
 #include <QGridLayout>
 #include <QGroupBox>

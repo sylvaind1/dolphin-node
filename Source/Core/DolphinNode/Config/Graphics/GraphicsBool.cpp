@@ -2,13 +2,13 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Graphics/GraphicsBool.h"
+#include "DolphinNode/Config/Graphics/GraphicsBool.h"
 
 #include <QSignalBlocker>
 
 #include "Common/Config/Config.h"
 
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Settings.h"
 
 #include <QFont>
 

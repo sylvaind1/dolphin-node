@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/TAS/IRWidget.h"
+#include "DolphinNode/TAS/IRWidget.h"
 
 #include <algorithm>
 #include <cmath>

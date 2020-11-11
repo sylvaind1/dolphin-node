@@ -5,7 +5,7 @@
 #include <QEvent>
 #include <QObject>
 
-#include "DolphinQt/QtUtils/WindowActivationEventFilter.h"
+#include "DolphinNode/QtUtils/WindowActivationEventFilter.h"
 
 bool WindowActivationEventFilter::eventFilter(QObject* object, QEvent* event)
 {

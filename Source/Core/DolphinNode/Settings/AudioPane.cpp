@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Settings/AudioPane.h"
+#include "DolphinNode/Settings/AudioPane.h"
 
 #include <QCheckBox>
 #include <QComboBox>
@@ -25,8 +25,8 @@
 #include "Core/ConfigManager.h"
 #include "Core/Core.h"
 
-#include "DolphinQt/Config/SettingsWindow.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Config/SettingsWindow.h"
+#include "DolphinNode/Settings.h"
 
 AudioPane::AudioPane()
 {

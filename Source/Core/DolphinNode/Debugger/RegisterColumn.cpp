@@ -2,12 +2,12 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Debugger/RegisterColumn.h"
+#include "DolphinNode/Debugger/RegisterColumn.h"
 
 #include <cstring>
 #include <utility>
 
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
 
 RegisterColumn::RegisterColumn(RegisterType type, std::function<u64()> get,
                                std::function<void(u64)> set)

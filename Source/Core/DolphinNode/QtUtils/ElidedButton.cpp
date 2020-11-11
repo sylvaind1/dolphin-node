@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/QtUtils/ElidedButton.h"
+#include "DolphinNode/QtUtils/ElidedButton.h"
 
 #include <QFontMetrics>
 #include <QStyleOptionButton>

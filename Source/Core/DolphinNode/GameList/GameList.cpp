@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/GameList/GameList.h"
+#include "DolphinNode/GameList/GameList.h"
 
 #include <algorithm>
 #include <cmath>
@@ -39,18 +39,18 @@
 #include "DiscIO/Blob.h"
 #include "DiscIO/Enums.h"
 
-#include "DolphinQt/Config/PropertiesDialog.h"
-#include "DolphinQt/ConvertDialog.h"
-#include "DolphinQt/GameList/GameListModel.h"
-#include "DolphinQt/GameList/GridProxyModel.h"
-#include "DolphinQt/GameList/ListProxyModel.h"
-#include "DolphinQt/MenuBar.h"
-#include "DolphinQt/QtUtils/DoubleClickEventFilter.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/QtUtils/ParallelProgressDialog.h"
-#include "DolphinQt/Resources.h"
-#include "DolphinQt/Settings.h"
-#include "DolphinQt/WiiUpdate.h"
+#include "DolphinNode/Config/PropertiesDialog.h"
+#include "DolphinNode/ConvertDialog.h"
+#include "DolphinNode/GameList/GameListModel.h"
+#include "DolphinNode/GameList/GridProxyModel.h"
+#include "DolphinNode/GameList/ListProxyModel.h"
+#include "DolphinNode/MenuBar.h"
+#include "DolphinNode/QtUtils/DoubleClickEventFilter.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/QtUtils/ParallelProgressDialog.h"
+#include "DolphinNode/Resources.h"
+#include "DolphinNode/Settings.h"
+#include "DolphinNode/WiiUpdate.h"
 
 #include "UICommon/GameFile.h"
 

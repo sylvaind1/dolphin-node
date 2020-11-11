@@ -9,7 +9,7 @@
 #include <QDockWidget>
 
 #include "Common/CommonTypes.h"
-#include "DolphinQt/Debugger/RegisterColumn.h"
+#include "DolphinNode/Debugger/RegisterColumn.h"
 
 class QTableWidget;
 class QCloseEvent;

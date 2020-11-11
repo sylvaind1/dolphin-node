@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Debugger/CodeWidget.h"
+#include "DolphinNode/Debugger/CodeWidget.h"
 
 #include <chrono>
 
@@ -22,8 +22,8 @@
 #include "Core/PowerPC/MMU.h"
 #include "Core/PowerPC/PPCSymbolDB.h"
 #include "Core/PowerPC/PowerPC.h"
-#include "DolphinQt/Host.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Host.h"
+#include "DolphinNode/Settings.h"
 
 CodeWidget::CodeWidget(QWidget* parent) : QDockWidget(parent)
 {

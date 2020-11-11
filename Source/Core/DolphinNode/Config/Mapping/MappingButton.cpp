@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Mapping/MappingButton.h"
+#include "DolphinNode/Config/Mapping/MappingButton.h"
 
 #include <QApplication>
 #include <QFontMetrics>
@@ -13,13 +13,13 @@
 #include "Common/Thread.h"
 #include "Core/Core.h"
 
-#include "DolphinQt/Config/Mapping/IOWindow.h"
-#include "DolphinQt/Config/Mapping/MappingCommon.h"
-#include "DolphinQt/Config/Mapping/MappingWidget.h"
-#include "DolphinQt/Config/Mapping/MappingWindow.h"
-#include "DolphinQt/QtUtils/BlockUserInputFilter.h"
-#include "DolphinQt/QtUtils/QueueOnObject.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Config/Mapping/IOWindow.h"
+#include "DolphinNode/Config/Mapping/MappingCommon.h"
+#include "DolphinNode/Config/Mapping/MappingWidget.h"
+#include "DolphinNode/Config/Mapping/MappingWindow.h"
+#include "DolphinNode/QtUtils/BlockUserInputFilter.h"
+#include "DolphinNode/QtUtils/QueueOnObject.h"
+#include "DolphinNode/Settings.h"
 
 #include "InputCommon/ControlReference/ControlReference.h"
 #include "InputCommon/ControllerEmu/ControlGroup/Buttons.h"

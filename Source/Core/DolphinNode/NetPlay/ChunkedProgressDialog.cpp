@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/NetPlay/ChunkedProgressDialog.h"
+#include "DolphinNode/NetPlay/ChunkedProgressDialog.h"
 
 #include <algorithm>
 #include <cmath>
@@ -20,7 +20,7 @@
 #include "Core/NetPlayClient.h"
 #include "Core/NetPlayServer.h"
 
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Settings.h"
 
 static QString GetPlayerNameFromPID(int pid)
 {

@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Graphics/EnhancementsWidget.h"
+#include "DolphinNode/Config/Graphics/EnhancementsWidget.h"
 
 #include <cmath>
 
@@ -15,13 +15,13 @@
 #include "Core/Config/GraphicsSettings.h"
 #include "Core/ConfigManager.h"
 
-#include "DolphinQt/Config/Graphics/GraphicsBool.h"
-#include "DolphinQt/Config/Graphics/GraphicsChoice.h"
-#include "DolphinQt/Config/Graphics/GraphicsSlider.h"
-#include "DolphinQt/Config/Graphics/GraphicsWindow.h"
-#include "DolphinQt/Config/Graphics/PostProcessingConfigWindow.h"
-#include "DolphinQt/QtUtils/ModalMessageBox.h"
-#include "DolphinQt/Settings.h"
+#include "DolphinNode/Config/Graphics/GraphicsBool.h"
+#include "DolphinNode/Config/Graphics/GraphicsChoice.h"
+#include "DolphinNode/Config/Graphics/GraphicsSlider.h"
+#include "DolphinNode/Config/Graphics/GraphicsWindow.h"
+#include "DolphinNode/Config/Graphics/PostProcessingConfigWindow.h"
+#include "DolphinNode/QtUtils/ModalMessageBox.h"
+#include "DolphinNode/Settings.h"
 
 #include "UICommon/VideoUtils.h"
 

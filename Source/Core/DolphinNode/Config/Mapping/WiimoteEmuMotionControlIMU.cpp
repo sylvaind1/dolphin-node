@@ -2,7 +2,7 @@
 // Licensed under GPLv2+
 // Refer to the license.txt file included.
 
-#include "DolphinQt/Config/Mapping/WiimoteEmuMotionControlIMU.h"
+#include "DolphinNode/Config/Mapping/WiimoteEmuMotionControlIMU.h"
 
 #include <QFormLayout>
 #include <QGroupBox>
@@ -15,7 +15,7 @@
 #include "Core/HW/Wiimote.h"
 #include "Core/HW/WiimoteEmu/WiimoteEmu.h"
 
-#include "DolphinQt/Config/ControllerInterface/ControllerInterfaceWindow.h"
+#include "DolphinNode/Config/ControllerInterface/ControllerInterfaceWindow.h"
 
 #include "InputCommon/InputConfig.h"
 
