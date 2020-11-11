@@ -13,7 +13,7 @@ message(STATUS "Found Qt version ${Qt5Core_VERSION}")
 
 set(CMAKE_AUTOMOC ON)
 
-add_executable(dolphin-emu
+add_executable(dolphin-node
   AboutDialog.cpp
   AboutDialog.h
   CheatsManager.cpp
@@ -288,26 +288,26 @@ add_executable(dolphin-emu
 )
 
 if (NOT WIN32)
-  target_sources(dolphin-emu PRIVATE
+  target_sources(dolphin-node PRIVATE
     QtUtils/SignalDaemon.cpp
     QtUtils/SignalDaemon.h
   )
 endif()
 
-target_compile_definitions(dolphin-emu
+target_compile_definitions(dolphin-node
 PRIVATE
   -DQT_USE_QSTRINGBUILDER
   -DQT_NO_CAST_FROM_ASCII
   -DQT_NO_CAST_TO_ASCII
 )
 
-target_include_directories(dolphin-emu
+target_include_directories(dolphin-node
 PRIVATE
   ${CMAKE_CURRENT_BINARY_DIR}
   ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
 )
 
-target_link_libraries(dolphin-emu
+target_link_libraries(dolphin-node
 PRIVATE
   core
   Qt5::Widgets
@@ -316,7 +316,7 @@ PRIVATE
 )
 
 if (WIN32)
-  target_link_libraries(dolphin-emu
+  target_link_libraries(dolphin-node
   PRIVATE
 	  gdi32.lib
 		shell32.lib
@@ -324,23 +324,23 @@ if (WIN32)
 endif()
 
 if(WIN32)
-  target_sources(dolphin-emu PRIVATE DolphinQt.manifest DolphinQt.rc)
+  target_sources(dolphin-node PRIVATE DolphinQt.manifest DolphinQt.rc)
 
-  set_target_properties(dolphin-emu PROPERTIES
+  set_target_properties(dolphin-node PROPERTIES
     DEBUG_POSTFIX    D
     OUTPUT_NAME      Dolphin
     WIN32_EXECUTABLE TRUE
   )
 
-  target_compile_options(dolphin-emu PRIVATE "-D_SILENCE_CXX17_RESULT_OF_DEPRECATION_WARNING")
+  target_compile_options(dolphin-node PRIVATE "-D_SILENCE_CXX17_RESULT_OF_DEPRECATION_WARNING")
 
   # Copy Sys dir
-  add_custom_command(TARGET dolphin-emu POST_BUILD
+  add_custom_command(TARGET dolphin-node POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/Data/Sys" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sys"
   )
 
   # Copy qt.conf
-  add_custom_command(TARGET dolphin-emu POST_BUILD
+  add_custom_command(TARGET dolphin-node POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different "${CMAKE_CURRENT_SOURCE_DIR}/qt.conf.win" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/qt.conf"
   )
 
@@ -363,14 +363,14 @@ if(WIN32)
   #       means proper path variables will not be set up, thus the need to ensure they're
   #       always set up.
   #
-  add_custom_command(TARGET dolphin-emu POST_BUILD
+  add_custom_command(TARGET dolphin-node POST_BUILD
     COMMAND "${CMAKE_COMMAND}" -E env PATH="${QT_BINARY_DIRECTORY}"
             "${WINDEPLOYQT_EXE}" --libdir="${CMAKE_RUNTIME_OUTPUT_DIRECTORY}"
                                  --plugindir="${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/QtPlugins"
                                  $<IF:$<CONFIG:Debug>,--debug,--release>
                                  --no-translations
                                  --no-compiler-runtime
-                                 "$<TARGET_FILE:dolphin-emu>"
+                                 "$<TARGET_FILE:dolphin-node>"
   )
 endif()
 
@@ -386,7 +386,7 @@ if(GETTEXT_MSGFMT_EXECUTABLE)
   set(pot_file "${CMAKE_SOURCE_DIR}/Languages/po/dolphin-emu.pot")
   file(GLOB LINGUAS ${CMAKE_SOURCE_DIR}/Languages/po/*.po)
 
-  target_sources(dolphin-emu PRIVATE ${pot_file} ${LINGUAS})
+  target_sources(dolphin-node PRIVATE ${pot_file} ${LINGUAS})
   source_group("Localization" FILES ${LINGUAS})
   source_group("Localization\\\\Generated" FILES ${pot_file})
 
@@ -395,7 +395,7 @@ if(GETTEXT_MSGFMT_EXECUTABLE)
     set(mo_dir ${CMAKE_CURRENT_BINARY_DIR}/${lang})
     set(mo ${mo_dir}/dolphin-emu.mo)
 
-    target_sources(dolphin-emu PRIVATE ${mo})
+    target_sources(dolphin-node PRIVATE ${mo})
     source_group("Localization\\\\Generated" FILES ${mo})
 
     if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
@@ -427,34 +427,34 @@ if(APPLE)
   set(BUNDLE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Dolphin.app)
 
   # Ask for an application bundle.
-  set_target_properties(dolphin-emu PROPERTIES
+  set_target_properties(dolphin-node PROPERTIES
     MACOSX_BUNDLE true
     MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in
     OUTPUT_NAME Dolphin
     )
 
   # Copy qt.conf into the bundle
-  target_sources(dolphin-emu PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/qt.conf")
+  target_sources(dolphin-node PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/qt.conf")
   set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/qt.conf" PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
 
   # Copy icon into the bundle
-  target_sources(dolphin-emu PRIVATE "${CMAKE_SOURCE_DIR}/Data/Dolphin.icns")
+  target_sources(dolphin-node PRIVATE "${CMAKE_SOURCE_DIR}/Data/Dolphin.icns")
   set_source_files_properties("${CMAKE_SOURCE_DIR}/Data/Dolphin.icns" PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
 
   # Copy Qt plugins into the bundle
   get_target_property(qtcocoa_location Qt5::QCocoaIntegrationPlugin LOCATION)
-  target_sources(dolphin-emu PRIVATE "${qtcocoa_location}")
+  target_sources(dolphin-node PRIVATE "${qtcocoa_location}")
   set_source_files_properties("${qtcocoa_location}" PROPERTIES MACOSX_PACKAGE_LOCATION MacOS/platforms)
 
   get_target_property(qtmacstyle_location Qt5::QMacStylePlugin LOCATION)
-  target_sources(dolphin-emu PRIVATE "${qtmacstyle_location}")
+  target_sources(dolphin-node PRIVATE "${qtmacstyle_location}")
   set_source_files_properties("${qtmacstyle_location}" PROPERTIES MACOSX_PACKAGE_LOCATION MacOS/styles)
 
   # Copy resources into the bundle
   set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/Data/Sys")
   file(GLOB_RECURSE resources RELATIVE "${CMAKE_SOURCE_DIR}/Data" "${CMAKE_SOURCE_DIR}/Data/Sys/*")
   foreach(res ${resources})
-    target_sources(dolphin-emu PRIVATE "${CMAKE_SOURCE_DIR}/Data/${res}")
+    target_sources(dolphin-node PRIVATE "${CMAKE_SOURCE_DIR}/Data/${res}")
     get_filename_component(resdir "${res}" DIRECTORY)
     set_source_files_properties("${CMAKE_SOURCE_DIR}/Data/${res}" PROPERTIES
       MACOSX_PACKAGE_LOCATION "Resources/${resdir}")
@@ -462,21 +462,21 @@ if(APPLE)
   endforeach()
 
   # Copy MoltenVK into the bundle
-  target_sources(dolphin-emu PRIVATE "${CMAKE_SOURCE_DIR}/Externals/MoltenVK/libvulkan.dylib")
+  target_sources(dolphin-node PRIVATE "${CMAKE_SOURCE_DIR}/Externals/MoltenVK/libvulkan.dylib")
   set_source_files_properties("${CMAKE_SOURCE_DIR}/Externals/MoltenVK/libvulkan.dylib" PROPERTIES MACOSX_PACKAGE_LOCATION Frameworks)
 
   # Update library references to make the bundle portable
   include(DolphinPostprocessBundle)
-  dolphin_postprocess_bundle(dolphin-emu)
+  dolphin_postprocess_bundle(dolphin-node)
   # Fix rpath
-  add_custom_command(TARGET dolphin-emu
+  add_custom_command(TARGET dolphin-node
     POST_BUILD COMMAND
     ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "@executable_path/../Frameworks/"
-    $<TARGET_FILE:dolphin-emu>)
+    $<TARGET_FILE:dolphin-node>)
 else()
-  install(TARGETS dolphin-emu RUNTIME DESTINATION ${bindir})
+  install(TARGETS dolphin-node RUNTIME DESTINATION ${bindir})
 endif()
 
 if(USE_DISCORD_PRESENCE)
-  target_compile_definitions(dolphin-emu PRIVATE -DUSE_DISCORD_PRESENCE)
+  target_compile_definitions(dolphin-node PRIVATE -DUSE_DISCORD_PRESENCE)
 endif()
