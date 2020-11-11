@@ -26,8 +26,9 @@ endif()
 
 option(USE_SHARED_ENET "Use shared libenet if found rather than Dolphin's soon-to-compatibly-diverge version" OFF)
 option(USE_UPNP "Enables UPnP port mapping support" ON)
-option(ENABLE_NOGUI "Enable NoGUI frontend" ON)
-option(ENABLE_QT "Enable Qt (Default)" ON)
+option(ENABLE_NOGUI "Enable NoGUI frontend" OFF)
+option(ENABLE_QT "Enable Qt" OFF)
+option(ENABLE_NODE "Enable Node (Default)" ON)
 option(ENABLE_LTO "Enables Link Time Optimization" OFF)
 option(ENABLE_GENERIC "Enables generic build that should run on any little-endian host" OFF)
 option(ENABLE_HEADLESS "Enables running Dolphin as a headless variant" OFF)
@@ -36,7 +37,7 @@ option(ENABLE_PULSEAUDIO "Enables PulseAudio sound backend" ON)
 option(ENABLE_LLVM "Enables LLVM support, for disassembly" ON)
 option(ENABLE_TESTS "Enables building the unit tests" ON)
 option(ENABLE_VULKAN "Enables vulkan video backend" ON)
-option(USE_DISCORD_PRESENCE "Enables Discord Rich Presence, show the current game on Discord" ON)
+option(USE_DISCORD_PRESENCE "Enables Discord Rich Presence, show the current game on Discord" OFF)
 
 # Maintainers: if you consider blanket disabling this for your users, please
 # consider the following points:
@@ -44,7 +45,7 @@ option(USE_DISCORD_PRESENCE "Enables Discord Rich Presence, show the current gam
 #    launch).
 #  * The Dolphin team relies on the data in order to understand the behavior
 #    of our software in the wild.
-option(ENABLE_ANALYTICS "Enables opt-in Analytics collection" ON)
+option(ENABLE_ANALYTICS "Enables opt-in Analytics collection" OFF)
 
 option(ENCODE_FRAMEDUMPS "Encode framedumps in AVI format" ON)
 
