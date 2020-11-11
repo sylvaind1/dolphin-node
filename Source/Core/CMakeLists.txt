@@ -15,6 +15,10 @@ if(ENABLE_QT)
   add_subdirectory(DolphinQt)
 endif()
 
+if(ENABLE_NODE)
+	add_subdirectory(DolphinNode)
+endif()
+
 if (APPLE OR WIN32)
   add_subdirectory(UpdaterCommon)
 endif()
