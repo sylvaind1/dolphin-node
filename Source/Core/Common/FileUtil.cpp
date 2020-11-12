@@ -689,6 +689,9 @@ std::string GetBundleDirectory()
 
 std::string GetExePath()
 {
+  return "./";
+
+#if 0
   static const std::string dolphin_path = [] {
     std::string result;
 #ifdef _WIN32
@@ -722,6 +725,7 @@ std::string GetExePath()
     return result;
   }();
   return dolphin_path;
+#endif
 }
 
 std::string GetExeDirectory()

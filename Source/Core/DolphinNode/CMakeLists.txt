@@ -13,7 +13,7 @@ message(STATUS "Found Qt version ${Qt5Core_VERSION}")
 
 set(CMAKE_AUTOMOC ON)
 
-add_executable(dolphin-node
+add_library(dolphin-node SHARED ${CMAKE_JS_SRC}
   AboutDialog.cpp
   AboutDialog.h
   CheatsManager.cpp
@@ -313,6 +313,8 @@ PRIVATE
   Qt5::Widgets
   uicommon
   imgui
+  node::cmake-js
+  node::node-addon-api
 )
 
 if (WIN32)
@@ -327,8 +329,9 @@ if(WIN32)
   target_sources(dolphin-node PRIVATE DolphinQt.manifest DolphinQt.rc)
 
   set_target_properties(dolphin-node PROPERTIES
-    DEBUG_POSTFIX    D
-    OUTPUT_NAME      Dolphin
+    PREFIX           ""
+    SUFFIX           ".node"
+    OUTPUT_NAME      dolphin
     WIN32_EXECUTABLE TRUE
   )
 
@@ -430,7 +433,9 @@ if(APPLE)
   set_target_properties(dolphin-node PROPERTIES
     MACOSX_BUNDLE true
     MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in
-    OUTPUT_NAME Dolphin
+    PREFIX      ""
+    SUFFIX      ".node"
+    OUTPUT_NAME dolphin
     )
 
   # Copy qt.conf into the bundle

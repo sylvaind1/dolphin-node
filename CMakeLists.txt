@@ -87,6 +87,8 @@ list(APPEND CMAKE_MODULE_PATH
   ${CMAKE_SOURCE_DIR}/CMake
 )
 
+include(ImportNode)
+
 # Support functions
 include(CheckAndAddFlag)
 include(CheckCCompilerFlag)

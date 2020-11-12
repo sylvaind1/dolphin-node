@@ -1,0 +1,28 @@
+{
+  "name": "dolphin-node",
+  "version": "1.0.0",
+  "description": "Dolphin library for ModLoader64",
+  "private": true,
+  "cmake-js": {
+    "runtime": "node",
+    "arch": "x64"
+  },
+  "scripts": {
+    "clean": "cmake-js clean",
+    "config-debug": "cmake-js configure -DCMAKE_BUILD_TYPE=Debug",
+    "config": "cmake-js configure",
+    "build-debug": "cmake-js build -DCMAKE_BUILD_TYPE=Debug",
+    "build": "cmake-js build",
+    "rebuild-debug": "cmake-js rebuild -DCMAKE_BUILD_TYPE=Debug",
+    "rebuild": "cmake-js rebuild",
+    "compile-debug": "cmake-js compile -DCMAKE_BUILD_TYPE=Debug",
+    "compile": "cmake-js compile",
+    "test": "cd Binary && node index.js"
+  },
+  "author": "",
+  "license": "GPL-2.0",
+  "dependencies": {
+    "@types/node": "^14.14.7",
+    "node-addon-api": "^3.0.2"
+  }
+}

@@ -10,6 +10,12 @@ indent_style = space
 insert_final_newline = true
 max_line_length = 100
 
+[*.ts]
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+max_line_length = 100
+
 [{CMakeLists.txt,*.cmake}]
 indent_style = tab
 

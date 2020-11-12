@@ -13,6 +13,7 @@
 #include <OptionParser.h>
 #include <QAbstractEventDispatcher>
 #include <QApplication>
+#include <QDir>
 #include <QObject>
 #include <QPushButton>
 #include <QWidget>
@@ -99,47 +100,15 @@ static bool QtMsgAlertHandler(const char* caption, const char* text, bool yes_no
   return false;
 }
 
-#ifndef _WIN32
-int main(int argc, char* argv[])
+int DolphinEntryPoint(const std::vector<std::string>& vargs)
 {
-#else
-int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
-{
-  std::vector<std::string> utf8_args = CommandLineToUtf8Argv(GetCommandLineW());
-  const int utf8_argc = static_cast<int>(utf8_args.size());
-  std::vector<char*> utf8_argv(utf8_args.size());
-  for (size_t i = 0; i < utf8_args.size(); ++i)
-    utf8_argv[i] = utf8_args[i].data();
-
-  const bool console_attached = AttachConsole(ATTACH_PARENT_PROCESS) != FALSE;
-  HANDLE stdout_handle = ::GetStdHandle(STD_OUTPUT_HANDLE);
-  if (console_attached && stdout_handle)
-  {
-    freopen("CONOUT$", "w", stdout);
-    freopen("CONOUT$", "w", stderr);
-  }
-#endif
-
-#ifdef __APPLE__
-  // On macOS, a command line option matching the format "-psn_X_XXXXXX" is passed when
-  // the application is launched for the first time. This is to set the "ProcessSerialNumber",
-  // something used by the legacy Process Manager from Carbon. optparse will fail if it finds
-  // this as it isn't a valid Dolphin command line option, so pretend like it doesn't exist
-  // if found.
-  if (strncmp(argv[argc - 1], "-psn", 4) == 0)
-  {
-    argc--;
-  }
-#endif
-
   auto parser = CommandLineParse::CreateParser(CommandLineParse::ParserOptions::IncludeGUIOptions);
-  const optparse::Values& options =
-#ifdef _WIN32
-      CommandLineParse::ParseArguments(parser.get(), utf8_argc, utf8_argv.data());
-#else
-      CommandLineParse::ParseArguments(parser.get(), argc, argv);
-#endif
+  const optparse::Values& options = CommandLineParse::ParseArguments(parser.get(), vargs);
   const std::vector<std::string> args = parser->args();
+
+#ifdef _WIN32
+  QCoreApplication::addLibraryPath(QStringLiteral("%1/%2").arg(QDir::currentPath(), QStringLiteral("QtPlugins")));
+#endif
 
   QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
   QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
@@ -147,11 +116,11 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
   QCoreApplication::setOrganizationDomain(QStringLiteral("dolphin-emu.org"));
   QCoreApplication::setApplicationName(QStringLiteral("dolphin-emu"));
 
-#ifdef _WIN32
-  QApplication app(__argc, __argv);
-#else
+  static int argc = 1;
+  static auto argv0 = QStringLiteral("%1/%2").arg(QDir::currentPath(), QStringLiteral("dolphin.node")).toStdString();
+  static char* argv[] = { argv0.data() };
+
   QApplication app(argc, argv);
-#endif
 
 #ifdef _WIN32
   // On Windows, Qt 5's default system font (MS Shell Dlg 2) is outdated.
@@ -160,10 +129,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
   // So use it for the entire application.
   // This code will become unnecessary and obsolete once we switch to Qt 6.
   QApplication::setFont(QApplication::font("QMenu"));
-#endif
-
-#ifdef _WIN32
-  FreeConsole();
 #endif
 
   UICommon::SetUserDirectory(static_cast<const char*>(options.get("user")));
@@ -243,48 +208,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
   }
   else
   {
-    DolphinAnalytics::Instance().ReportDolphinStart("qt");
-
     MainWindow win{std::move(boot), static_cast<const char*>(options.get("movie"))};
     if (options.is_set("debugger"))
       Settings::Instance().SetDebugModeEnabled(true);
     win.Show();
-
-#if defined(USE_ANALYTICS) && USE_ANALYTICS
-    if (!Config::Get(Config::MAIN_ANALYTICS_PERMISSION_ASKED))
-    {
-      ModalMessageBox analytics_prompt(&win);
-
-      analytics_prompt.setIcon(QMessageBox::Question);
-      analytics_prompt.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-      analytics_prompt.setWindowTitle(QObject::tr("Allow Usage Statistics Reporting"));
-      analytics_prompt.setText(
-          QObject::tr("Do you authorize Dolphin to report information to Dolphin's developers?"));
-      analytics_prompt.setInformativeText(
-          QObject::tr("If authorized, Dolphin can collect data on its performance, "
-                      "feature usage, and configuration, as well as data on your system's "
-                      "hardware and operating system.\n\n"
-                      "No private data is ever collected. This data helps us understand "
-                      "how people and emulated games use Dolphin and prioritize our "
-                      "efforts. It also helps us identify rare configurations that are "
-                      "causing bugs, performance and stability issues.\n"
-                      "This authorization can be revoked at any time through Dolphin's "
-                      "settings."));
-
-      const int answer = analytics_prompt.exec();
-
-      Config::SetBase(Config::MAIN_ANALYTICS_PERMISSION_ASKED, true);
-      Settings::Instance().SetAnalyticsEnabled(answer == QMessageBox::Yes);
-
-      DolphinAnalytics::Instance().ReloadConfig();
-    }
-#endif
-
-    if (!Settings::Instance().IsBatchModeEnabled())
-    {
-      auto* updater = new Updater(&win);
-      updater->start();
-    }
 
     retval = app.exec();
   }
@@ -295,3 +222,29 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 
   return retval;
 }
+
+#include <napi.h>
+
+Napi::Value NapiDolphinEntryPoint(const Napi::CallbackInfo& info)
+{
+  auto in_args = info[0].As<Napi::Array>();
+  std::vector<std::string> args;
+
+  for (unsigned i{}; i < in_args.Length(); ++i)
+  {
+    args.push_back(in_args.Get(i).As<Napi::String>().Utf8Value());
+  }
+
+  int retval = DolphinEntryPoint(args);
+
+  return Napi::Number::New(info.Env(), retval);
+}
+
+Napi::Object ModuleEntryPoint(Napi::Env env, Napi::Object exports)
+{
+  exports.Set("main", Napi::Function::New(env, NapiDolphinEntryPoint));
+
+  return exports;
+}
+
+NODE_API_MODULE(NAPI_DOLPHIN_NODE, ModuleEntryPoint)
