@@ -81,6 +81,7 @@ if(UNIX)
   # Builds a relocatable binary on Linux.
   # The Sys folder will need to be copied to the Binaries folder.
   option(LINUX_LOCAL_DEV "Enable relocatable binary" OFF)
+  add_compile_options(-fPIC)
 endif()
 
 list(APPEND CMAKE_MODULE_PATH
@@ -115,7 +116,7 @@ endif()
 # as defined above.
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Binaries)
 
-if (WIN32)
+if(WIN32 OR UNIX)
   set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/Binary)
 
   if (CMAKE_SYSTEM_PROCESSOR STREQUAL "aarch64")

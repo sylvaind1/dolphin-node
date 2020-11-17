@@ -730,16 +730,23 @@ std::string GetExePath()
 
 std::string GetExeDirectory()
 {
+  return "./";
+
+#if 0
   std::string exe_path = GetExePath();
 #ifdef _WIN32
   return exe_path.substr(0, exe_path.rfind('\\'));
 #else
   return exe_path.substr(0, exe_path.rfind('/'));
 #endif
+#endif
 }
 
 std::string GetSysDirectory()
 {
+  return "./Sys/";
+
+#if 0
   std::string sysDir;
 
 #if defined(_WIN32) || defined(LINUX_LOCAL_DEV)
@@ -768,6 +775,7 @@ std::string GetSysDirectory()
 
   INFO_LOG_FMT(COMMON, "GetSysDirectory: Setting to {}:", sysDir);
   return sysDir;
+#endif
 }
 
 #ifdef ANDROID

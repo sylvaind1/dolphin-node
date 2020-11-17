@@ -317,6 +317,20 @@ PRIVATE
   node::node-addon-api
 )
 
+if(UNIX)
+  set_target_properties(dolphin-node PROPERTIES
+    PREFIX           ""
+    SUFFIX           ".node"
+    OUTPUT_NAME      dolphin
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Binary"
+  )
+
+  # Copy Sys dir
+  add_custom_command(TARGET dolphin-node POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/Data/Sys" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sys"
+  )
+endif()
+
 if (WIN32)
   target_link_libraries(dolphin-node
   PRIVATE
@@ -407,7 +421,7 @@ if(GETTEXT_MSGFMT_EXECUTABLE)
       install(FILES ${mo} DESTINATION share/locale/${lang}/LC_MESSAGES)
     endif()
 
-    if(WIN32)
+    if(WIN32 OR UNIX)
       add_custom_command(OUTPUT ${mo}
         COMMAND ${CMAKE_COMMAND} -E make_directory ${mo_dir}
         COMMAND ${GETTEXT_MSGFMT_EXECUTABLE} -o ${mo} ${po}
