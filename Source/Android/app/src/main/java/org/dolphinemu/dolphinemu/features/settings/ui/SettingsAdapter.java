@@ -39,8 +39,13 @@ import org.dolphinemu.dolphinemu.features.settings.ui.viewholder.SingleChoiceVie
 import org.dolphinemu.dolphinemu.features.settings.ui.viewholder.SliderViewHolder;
 import org.dolphinemu.dolphinemu.features.settings.ui.viewholder.SubmenuViewHolder;
 import org.dolphinemu.dolphinemu.ui.main.MainPresenter;
+import org.dolphinemu.dolphinemu.utils.DirectoryInitialization;
 import org.dolphinemu.dolphinemu.utils.FileBrowserHelper;
+import org.dolphinemu.dolphinemu.utils.Log;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -158,6 +163,14 @@ public final class SettingsAdapter extends RecyclerView.Adapter<SettingViewHolde
   {
     mSettings = settings;
     notifyDataSetChanged();
+  }
+
+  public void clearSetting(SettingsItem item, int position)
+  {
+    item.clear(getSettings());
+    notifyItemChanged(position);
+
+    mView.onSettingChanged();
   }
 
   public void onBooleanClick(CheckBoxSetting item, int position, boolean checked)
@@ -317,21 +330,6 @@ public final class SettingsAdapter extends RecyclerView.Adapter<SettingViewHolde
     mClickedItem = null;
   }
 
-  public void resetPaths()
-  {
-    Settings settings = mView.getSettings();
-
-    StringSetting.MAIN_DEFAULT_ISO.delete(settings);
-    StringSetting.MAIN_FS_PATH.delete(settings);
-    StringSetting.MAIN_DUMP_PATH.delete(settings);
-    StringSetting.MAIN_LOAD_PATH.delete(settings);
-    StringSetting.MAIN_RESOURCEPACK_PATH.delete(settings);
-    StringSetting.MAIN_SD_PATH.delete(settings);
-
-    notifyItemRangeChanged(0, getItemCount());
-    mView.onSettingChanged();
-  }
-
   public void setAllLogTypes(boolean value)
   {
     Settings settings = mView.getSettings();
@@ -344,6 +342,22 @@ public final class SettingsAdapter extends RecyclerView.Adapter<SettingViewHolde
 
     notifyItemRangeChanged(0, getItemCount());
     mView.onSettingChanged();
+  }
+
+  public static void clearLog()
+  {
+    // Don't delete the log in case it is being monitored by another app.
+    File log = new File(DirectoryInitialization.getUserDirectory() + "/Logs/dolphin.log");
+
+    try
+    {
+      RandomAccessFile raf = new RandomAccessFile(log, "rw");
+      raf.setLength(0);
+    }
+    catch (IOException e)
+    {
+      Log.error("[SettingsAdapter] Failed to clear log file: " + e.getMessage());
+    }
   }
 
   private void handleMenuTag(MenuTag menuTag, int value)

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -98,9 +97,8 @@ public final class EmulationActivity extends AppCompatActivity
           MENU_ACTION_LOAD_SLOT3, MENU_ACTION_LOAD_SLOT4, MENU_ACTION_LOAD_SLOT5,
           MENU_ACTION_LOAD_SLOT6, MENU_ACTION_EXIT, MENU_ACTION_CHANGE_DISC,
           MENU_ACTION_RESET_OVERLAY, MENU_SET_IR_SENSITIVITY, MENU_ACTION_CHOOSE_DOUBLETAP,
-          MENU_ACTION_SCREEN_ORIENTATION, MENU_ACTION_MOTION_CONTROLS, MENU_ACTION_PAUSE_EMULATION,
-          MENU_ACTION_UNPAUSE_EMULATION, MENU_ACTION_OVERLAY_CONTROLS, MENU_ACTION_SETTINGS_CORE,
-          MENU_ACTION_SETTINGS_GRAPHICS})
+          MENU_ACTION_MOTION_CONTROLS, MENU_ACTION_PAUSE_EMULATION, MENU_ACTION_UNPAUSE_EMULATION,
+          MENU_ACTION_OVERLAY_CONTROLS, MENU_ACTION_SETTINGS_CORE, MENU_ACTION_SETTINGS_GRAPHICS})
   public @interface MenuAction
   {
   }
@@ -134,13 +132,12 @@ public final class EmulationActivity extends AppCompatActivity
   public static final int MENU_ACTION_RESET_OVERLAY = 26;
   public static final int MENU_SET_IR_SENSITIVITY = 27;
   public static final int MENU_ACTION_CHOOSE_DOUBLETAP = 28;
-  public static final int MENU_ACTION_SCREEN_ORIENTATION = 29;
-  public static final int MENU_ACTION_MOTION_CONTROLS = 30;
-  public static final int MENU_ACTION_PAUSE_EMULATION = 31;
-  public static final int MENU_ACTION_UNPAUSE_EMULATION = 32;
-  public static final int MENU_ACTION_OVERLAY_CONTROLS = 33;
-  public static final int MENU_ACTION_SETTINGS_CORE = 34;
-  public static final int MENU_ACTION_SETTINGS_GRAPHICS = 35;
+  public static final int MENU_ACTION_MOTION_CONTROLS = 29;
+  public static final int MENU_ACTION_PAUSE_EMULATION = 30;
+  public static final int MENU_ACTION_UNPAUSE_EMULATION = 31;
+  public static final int MENU_ACTION_OVERLAY_CONTROLS = 32;
+  public static final int MENU_ACTION_SETTINGS_CORE = 33;
+  public static final int MENU_ACTION_SETTINGS_GRAPHICS = 34;
 
   private static final SparseIntArray buttonsActionsMap = new SparseIntArray();
 
@@ -186,11 +183,30 @@ public final class EmulationActivity extends AppCompatActivity
     sIgnoreLaunchRequests = false;
   }
 
-  public static void clearWiimoteNewIniLinkedPreferences(Context context)
+  public static void updateWiimoteNewIniPreferences(Context context)
   {
-    SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
-    editor.remove("wiiController");
-    editor.apply();
+    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+    updateWiimoteNewController(preferences.getInt("wiiController", 3), context);
+
+    updateWiimoteNewImuIr(IntSetting.MAIN_MOTION_CONTROLS.getIntGlobal());
+  }
+
+  private static void updateWiimoteNewController(int value, Context context)
+  {
+    File wiimoteNewFile = SettingsFile.getSettingsFile(Settings.FILE_WIIMOTE);
+    IniFile wiimoteNewIni = new IniFile(wiimoteNewFile);
+    wiimoteNewIni.setString("Wiimote1", "Extension",
+            context.getResources().getStringArray(R.array.controllersValues)[value]);
+    wiimoteNewIni.setBoolean("Wiimote1", "Options/Sideways Wiimote", value == 2);
+    wiimoteNewIni.save(wiimoteNewFile);
+  }
+
+  private static void updateWiimoteNewImuIr(int value)
+  {
+    File wiimoteNewFile = SettingsFile.getSettingsFile(Settings.FILE_WIIMOTE);
+    IniFile wiimoteNewIni = new IniFile(wiimoteNewFile);
+    wiimoteNewIni.setBoolean("Wiimote1", "IMUIR/Enabled", value != 1);
+    wiimoteNewIni.save(wiimoteNewFile);
   }
 
   @Override
@@ -289,6 +305,8 @@ public final class EmulationActivity extends AppCompatActivity
   protected void onResume()
   {
     super.onResume();
+
+    updateOrientation();
 
     if (NativeLibrary.IsGameMetadataValid())
       updateMotionListener();
@@ -389,8 +407,7 @@ public final class EmulationActivity extends AppCompatActivity
 
   private void updateOrientation()
   {
-    setRequestedOrientation(mPreferences.getInt("emulationActivityOrientation",
-            ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE));
+    setRequestedOrientation(IntSetting.MAIN_EMULATION_ORIENTATION.getInt(mSettings));
   }
 
   private boolean closeSubmenu()
@@ -607,10 +624,6 @@ public final class EmulationActivity extends AppCompatActivity
 
       case MENU_ACTION_CHOOSE_DOUBLETAP:
         chooseDoubleTapButton();
-        break;
-
-      case MENU_ACTION_SCREEN_ORIENTATION:
-        chooseOrientation();
         break;
 
       case MENU_ACTION_MOTION_CONTROLS:
@@ -847,13 +860,7 @@ public final class EmulationActivity extends AppCompatActivity
             {
               editor.putInt("wiiController", indexSelected);
 
-              File wiimoteNewFile = SettingsFile.getSettingsFile(Settings.FILE_WIIMOTE);
-              IniFile wiimoteNewIni = new IniFile(wiimoteNewFile);
-              wiimoteNewIni.setString("Wiimote1", "Extension",
-                      getResources().getStringArray(R.array.controllersValues)[indexSelected]);
-              wiimoteNewIni.setBoolean("Wiimote1", "Options/Sideways Wiimote", indexSelected == 2);
-              wiimoteNewIni.save(wiimoteNewFile);
-
+              updateWiimoteNewController(indexSelected, this);
               NativeLibrary.ReloadWiimoteConfig();
             });
     builder.setPositiveButton(R.string.ok, (dialogInterface, i) ->
@@ -877,44 +884,10 @@ public final class EmulationActivity extends AppCompatActivity
 
               updateMotionListener();
 
-              File wiimoteNewFile = SettingsFile.getSettingsFile(Settings.FILE_WIIMOTE);
-              IniFile wiimoteNewIni = new IniFile(wiimoteNewFile);
-              wiimoteNewIni.setBoolean("Wiimote1", "IMUIR/Enabled", indexSelected != 1);
-              wiimoteNewIni.save(wiimoteNewFile);
-
+              updateWiimoteNewImuIr(indexSelected);
               NativeLibrary.ReloadWiimoteConfig();
             });
     builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
-
-    builder.show();
-  }
-
-  private void chooseOrientation()
-  {
-    final int[] orientationValues = getResources().getIntArray(R.array.orientationValues);
-    int initialChoice = mPreferences.getInt("emulationActivityOrientation",
-            ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-    int initialIndex = -1;
-    for (int i = 0; i < orientationValues.length; i++)
-    {
-      if (orientationValues[i] == initialChoice)
-        initialIndex = i;
-    }
-
-    final SharedPreferences.Editor editor = mPreferences.edit();
-    AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.DolphinDialogBase);
-    builder.setTitle(R.string.emulation_screen_orientation);
-    builder.setSingleChoiceItems(R.array.orientationEntries, initialIndex,
-            (dialog, indexSelected) ->
-            {
-              int orientation = orientationValues[indexSelected];
-              editor.putInt("emulationActivityOrientation", orientation);
-            });
-    builder.setPositiveButton(R.string.ok, (dialogInterface, i) ->
-    {
-      editor.apply();
-      updateOrientation();
-    });
 
     builder.show();
   }
