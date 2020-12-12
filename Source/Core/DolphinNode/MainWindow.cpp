@@ -101,7 +101,6 @@
 #include "DolphinNode/Settings.h"
 #include "DolphinNode/TAS/GCTASInputWindow.h"
 #include "DolphinNode/TAS/WiiTASInputWindow.h"
-#include "DolphinNode/ToolBar.h"
 #include "DolphinNode/WiiUpdate.h"
 
 #include "InputCommon/ControllerInterface/ControllerInterface.h"
@@ -209,7 +208,6 @@ MainWindow::MainWindow(std::unique_ptr<BootParameters> boot_parameters,
 
   ConnectGameList();
   ConnectHost();
-  ConnectToolBar();
   ConnectRenderWidget();
   ConnectStack();
   ConnectMenuBar();
@@ -368,7 +366,6 @@ static void InstallHotkeyFilter(QWidget* dialog)
 void MainWindow::CreateComponents()
 {
   m_menu_bar = new MenuBar(this);
-  m_tool_bar = new ToolBar(this);
   m_search_bar = new SearchBar(this);
   m_game_list = new GameList(this);
   m_render_widget = new RenderWidget;
@@ -586,30 +583,6 @@ void MainWindow::ConnectHotkeys()
           &CodeWidget::ToggleBreakpoint);
   connect(m_hotkey_scheduler, &HotkeyScheduler::AddBreakpoint, m_code_widget,
           &CodeWidget::AddBreakpoint);
-}
-
-void MainWindow::ConnectToolBar()
-{
-  addToolBar(m_tool_bar);
-
-  connect(m_tool_bar, &ToolBar::OpenPressed, this, &MainWindow::Open);
-  connect(m_tool_bar, &ToolBar::RefreshPressed, this, &MainWindow::RefreshGameList);
-
-  connect(m_tool_bar, &ToolBar::PlayPressed, this, [this]() { Play(); });
-  connect(m_tool_bar, &ToolBar::PausePressed, this, &MainWindow::Pause);
-  connect(m_tool_bar, &ToolBar::StopPressed, this, &MainWindow::RequestStop);
-  connect(m_tool_bar, &ToolBar::FullScreenPressed, this, &MainWindow::FullScreen);
-  connect(m_tool_bar, &ToolBar::ScreenShotPressed, this, &MainWindow::ScreenShot);
-  connect(m_tool_bar, &ToolBar::SettingsPressed, this, &MainWindow::ShowSettingsWindow);
-  connect(m_tool_bar, &ToolBar::ControllersPressed, this, &MainWindow::ShowControllersWindow);
-  connect(m_tool_bar, &ToolBar::GraphicsPressed, this, &MainWindow::ShowGraphicsWindow);
-
-  connect(m_tool_bar, &ToolBar::StepPressed, m_code_widget, &CodeWidget::Step);
-  connect(m_tool_bar, &ToolBar::StepOverPressed, m_code_widget, &CodeWidget::StepOver);
-  connect(m_tool_bar, &ToolBar::StepOutPressed, m_code_widget, &CodeWidget::StepOut);
-  connect(m_tool_bar, &ToolBar::SkipPressed, m_code_widget, &CodeWidget::Skip);
-  connect(m_tool_bar, &ToolBar::ShowPCPressed, m_code_widget, &CodeWidget::ShowPC);
-  connect(m_tool_bar, &ToolBar::SetPCPressed, m_code_widget, &CodeWidget::SetPC);
 }
 
 void MainWindow::ConnectGameList()

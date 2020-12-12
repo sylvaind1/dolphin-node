@@ -41,7 +41,6 @@ class RenderWidget;
 class SearchBar;
 class SettingsWindow;
 class ThreadWidget;
-class ToolBar;
 class WatchWidget;
 class WiiTASInputWindow;
 
@@ -117,7 +116,6 @@ private:
   void ConnectMenuBar();
   void ConnectRenderWidget();
   void ConnectStack();
-  void ConnectToolBar();
 
   void InitControllers();
   void ShutdownControllers();
@@ -194,7 +192,6 @@ private:
 #endif
 
   QStackedWidget* m_stack;
-  ToolBar* m_tool_bar;
   MenuBar* m_menu_bar;
   SearchBar* m_search_bar;
   GameList* m_game_list;
