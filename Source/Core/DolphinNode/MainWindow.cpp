@@ -757,6 +757,11 @@ void MainWindow::OnStopComplete()
   if (m_exit_requested || Settings::Instance().IsBatchModeEnabled())
     QGuiApplication::instance()->quit();
 
+  emit JsStopComplete();
+
+  if (m_exit_requested)
+    m_js_exit_requested = true;
+
   // If the current emulation prevented the booting of another, do that now
   if (m_pending_boot != nullptr)
   {
@@ -766,6 +771,11 @@ void MainWindow::OnStopComplete()
 }
 
 bool MainWindow::RequestStop()
+{
+  return emit JsStopRequested();
+}
+
+bool MainWindow::ActualRequestStop()
 {
   if (!Core::IsRunning())
   {
@@ -1425,8 +1435,12 @@ bool MainWindow::eventFilter(QObject* object, QEvent* event)
 {
   if (event->type() == QEvent::Close)
   {
-    if (RequestStop() && object == this)
+    if (RequestStop() && object == this) {
       m_exit_requested = true;
+
+      if (Core::GetState() == Core::State::Uninitialized)
+        m_js_exit_requested = true;
+    }
 
     static_cast<QCloseEvent*>(event)->ignore();
     return true;

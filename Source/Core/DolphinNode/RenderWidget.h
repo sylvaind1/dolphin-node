@@ -10,6 +10,12 @@
 class QMouseEvent;
 class QTimer;
 
+namespace JsCallbacks {
+
+void SetPassEventToImGui(std::function<bool()> function);
+
+}
+
 class RenderWidget final : public QWidget
 {
   Q_OBJECT

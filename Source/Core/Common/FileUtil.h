@@ -18,6 +18,12 @@
 #include "Common/StringUtil.h"
 #endif
 
+namespace Js {
+
+void SetBaseDirectory(std::string path);
+
+}
+
 // User directory indices for GetUserPath
 enum
 {

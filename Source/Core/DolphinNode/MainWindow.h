@@ -76,7 +76,15 @@ signals:
   void ReadOnlyModeChanged(bool read_only);
   void RecordingStatusChanged(bool recording);
 
+  bool JsStopRequested();
+  void JsStopComplete();
+
 private:
+  bool m_js_exit_requested{};
+
+public:
+  bool JsIsExitRequested() { return m_js_exit_requested; }
+
   void Open();
   void RefreshGameList();
   void Play(const std::optional<std::string>& savestate_path = {});
@@ -85,6 +93,7 @@ private:
 
   // May ask for confirmation. Returns whether or not it actually stopped.
   bool RequestStop();
+  bool ActualRequestStop();
   void ForceStop();
   void Reset();
   void FrameAdvance();
@@ -187,6 +196,7 @@ private:
   void dropEvent(QDropEvent* event) override;
   QSize sizeHint() const override;
 
+private:
 #if defined(HAVE_XRANDR) && HAVE_XRANDR
   std::unique_ptr<X11Utils::XRRConfiguration> m_xrr_config;
 #endif

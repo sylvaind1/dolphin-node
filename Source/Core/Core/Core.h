@@ -20,6 +20,14 @@
 struct BootParameters;
 struct WindowSystemInfo;
 
+namespace JsCallbacks {
+
+void SetOnTick(std::function<void()> function);
+void SetOnStateChangeBegin(std::function<void()> function);
+void SetOnStateChangeEnd(std::function<void()> function);
+
+}
+
 namespace Core
 {
 bool GetIsThrottlerTempDisabled();

@@ -89,6 +89,41 @@
 #include "jni/AndroidCommon/IDCache.h"
 #endif
 
+namespace JsCallbacks {
+
+std::function<void()> on_tick;
+std::function<void()> on_state_change_begin;
+std::function<void()> on_state_change_end;
+
+void SetOnTick(std::function<void()> function) {
+  on_tick = function;
+}
+
+inline void CallOnTick() {
+  if (on_tick)
+    on_tick();
+}
+
+void SetOnStateChangeBegin(std::function<void()> function) {
+  on_state_change_begin = function;
+}
+
+inline void CallOnStateChangeBegin() {
+  if (on_state_change_begin)
+    on_state_change_begin();
+}
+
+void SetOnStateChangeEnd(std::function<void()> function) {
+  on_state_change_end = function;
+}
+
+inline void CallOnStateChangeEnd() {
+  if (on_state_change_end)
+    on_state_change_end();
+}
+
+}
+
 namespace Core
 {
 static bool s_wants_determinism;
@@ -150,6 +185,8 @@ void OnFrameEnd()
   if (s_memory_watcher)
     s_memory_watcher->Step();
 #endif
+
+  JsCallbacks::CallOnTick();
 }
 
 // Display messages and return values
@@ -642,6 +679,8 @@ void SetState(State state)
   if (!IsRunningAndStarted())
     return;
 
+  JsCallbacks::CallOnStateChangeBegin();
+
   switch (state)
   {
   case State::Paused:
@@ -662,6 +701,8 @@ void SetState(State state)
 
   if (s_on_state_changed_callback)
     s_on_state_changed_callback(GetState());
+
+  JsCallbacks::CallOnStateChangeEnd();
 }
 
 State GetState()
@@ -789,6 +830,8 @@ static bool PauseAndLock(bool do_lock, bool unpause_on_unlock)
 
 void RunAsCPUThread(std::function<void()> function)
 {
+  JsCallbacks::CallOnStateChangeBegin();
+
   const bool is_cpu_thread = IsCPUThread();
   bool was_unpaused = false;
   if (!is_cpu_thread)
@@ -798,10 +841,14 @@ void RunAsCPUThread(std::function<void()> function)
 
   if (!is_cpu_thread)
     PauseAndLock(false, was_unpaused);
+
+  JsCallbacks::CallOnStateChangeEnd();
 }
 
 void RunOnCPUThread(std::function<void()> function, bool wait_for_completion)
 {
+  JsCallbacks::CallOnStateChangeBegin();
+
   // If the CPU thread is not running, assume there is no active CPU thread we can race against.
   if (!IsRunning() || IsCPUThread())
   {
@@ -837,6 +884,8 @@ void RunOnCPUThread(std::function<void()> function, bool wait_for_completion)
     while (!s_cpu_thread_job_finished.WaitFor(std::chrono::milliseconds(10)))
       Host_YieldToUI();
   }
+
+  JsCallbacks::CallOnStateChangeEnd();
 }
 
 // Display FPS info

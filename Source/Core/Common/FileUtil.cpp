@@ -57,6 +57,16 @@
 #define S_ISDIR(m) (((m)&S_IFMT) == S_IFDIR)
 #endif
 
+namespace Js {
+
+std::string base_dir;
+
+void SetBaseDirectory(std::string path) {
+  base_dir = std::move(path);
+}
+
+}
+
 // This namespace has various generic functions related to files and paths.
 // The code still needs a ton of cleanup.
 // REMEMBER: strdup considered harmful!
@@ -736,7 +746,7 @@ std::string GetBundleDirectory()
 
 std::string GetExePath()
 {
-  return "./";
+  return Js::base_dir;
 
 #if 0
   static const std::string dolphin_path = [] {
@@ -777,7 +787,7 @@ std::string GetExePath()
 
 std::string GetExeDirectory()
 {
-  return "./";
+  return Js::base_dir;
 
 #if 0
   std::string exe_path = GetExePath();
@@ -791,7 +801,7 @@ std::string GetExeDirectory()
 
 std::string GetSysDirectory()
 {
-  return "./Sys/";
+  return Js::base_dir + "Sys/";
 
 #if 0
   std::string sysDir;

@@ -37,6 +37,21 @@
 #include "VideoCommon/VertexShaderManager.h"
 #include "VideoCommon/VideoConfig.h"
 
+namespace JsCallbacks {
+
+std::function<bool()> pass_event_to_imgui;
+
+void SetPassEventToImGui(std::function<bool()> function) {
+  pass_event_to_imgui = function;
+}
+
+inline bool CallPassEventToImGui() {
+  if (!pass_event_to_imgui) return false;
+  return pass_event_to_imgui();
+}
+
+}
+
 RenderWidget::RenderWidget(QWidget* parent) : QWidget(parent)
 {
   setWindowTitle(QStringLiteral("Dolphin"));
@@ -257,6 +272,9 @@ void RenderWidget::OnFreeLookMouseMove(QMouseEvent* event)
 void RenderWidget::PassEventToImGui(const QEvent* event)
 {
   if (!Core::IsRunningAndStarted())
+    return;
+
+  if (!JsCallbacks::CallPassEventToImGui())
     return;
 
   switch (event->type())

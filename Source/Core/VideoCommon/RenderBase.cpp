@@ -85,6 +85,21 @@
 #include "VideoCommon/VideoConfig.h"
 #include "VideoCommon/XFMemory.h"
 
+namespace JsCallbacks {
+
+std::function<void()> on_imgui;
+
+void SetOnImGui(std::function<void()> function) {
+  on_imgui = function;
+}
+
+inline void CallOnImGui() {
+  if (on_imgui)
+    on_imgui();
+}
+
+}
+
 std::unique_ptr<Renderer> g_renderer;
 
 static float AspectToWidescreen(float aspect)
@@ -1243,6 +1258,7 @@ void Renderer::Swap(u32 xfb_addr, u32 fb_width, u32 fb_stride, u32 fb_height, u6
       {
         auto lock = GetImGuiLock();
 
+        JsCallbacks::CallOnImGui();
         DrawDebugText();
         OSD::DrawMessages();
         ImGui::Render();

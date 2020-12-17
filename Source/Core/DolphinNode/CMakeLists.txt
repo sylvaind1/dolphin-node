@@ -297,6 +297,8 @@ add_library(dolphin-node SHARED ${CMAKE_JS_SRC}
   TAS/IRWidget.h
   Updater.cpp
   Updater.h
+  Js/Frontend.cpp
+  Js/Frontend.h
 )
 
 if (NOT WIN32)

@@ -52,6 +52,12 @@ enum class EFBReinterpretType;
 enum class StagingTextureType;
 enum class AspectMode;
 
+namespace JsCallbacks {
+
+void SetOnImGui(std::function<void()> function);
+
+}
+
 namespace VideoCommon
 {
 class PostProcessing;
