@@ -181,7 +181,7 @@ Napi::Value Frontend::Startup(const Napi::CallbackInfo& info) {
       m_states[AtomicState_PendingOnImGui] = false;
     else if (m_states[AtomicState_PendingOnImGui] && m_states[AtomicState_HandlingOnImGui])
       while (m_states[AtomicState_PendingOnImGui]);
-    });
+  });
   JsCallbacks::SetOnStateChangeEnd([this]() {
     m_states[AtomicState_FreeOnTick] = false;
   });
