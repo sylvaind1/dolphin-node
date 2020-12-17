@@ -52,7 +52,7 @@ int ModalMessageBox::question(QWidget* parent, const QString& title, const QStri
                               StandardButtons buttons, StandardButton default_button,
                               Qt::WindowModality modality)
 {
-  return ExecMessageBox(QMessageBox::Warning, parent, title, text, buttons, default_button,
+  return ExecMessageBox(QMessageBox::Question, parent, title, text, buttons, default_button,
                         modality);
 }
 
