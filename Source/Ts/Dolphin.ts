@@ -24,7 +24,6 @@ export interface JitInterface {
 }
 
 export interface Memmap {
-  clear(): void;
   memset(address: number, value: number, size: number): void;
 
   readU8(address: number): number;

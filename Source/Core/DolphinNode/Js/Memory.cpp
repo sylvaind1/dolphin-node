@@ -132,7 +132,6 @@ static Napi::Object Init(Napi::Env env, Napi::Object exports) {
 
   Napi::Function func =
   DefineClass(env, "Memmap", {
-    StaticMethod("clear", &Memmap::Clear),
     StaticMethod("memset", &Memmap::Memset),
 
     StaticMethod("readU8", &Memmap::ReadU8),
@@ -219,12 +218,6 @@ static Napi::Object Init(Napi::Env env, Napi::Object exports) {
   exports.Set("Memmap", func);
 
   return exports;
-}
-
-static Napi::Value Clear(const Napi::CallbackInfo& info) {
-  ::Memory::Clear();
-
-  return info.Env().Undefined();
 }
 
 static Napi::Value Memset(const Napi::CallbackInfo& info) {
