@@ -826,6 +826,7 @@ static Napi::Object Init(Napi::Env env, Napi::Object exports) {
   Napi::Function func =
   DefineClass(env, "Accessors", {
     InstanceMethod("isAddressValid", &Accessors::IsAddressValid),
+    InstanceMethod("memset", &Accessors::Memset),
 
     InstanceMethod("readU8", &Accessors::ReadU8),
     InstanceMethod("readU16LE", &Accessors::ReadU16LE),
@@ -866,7 +867,7 @@ static Napi::Object Init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("writeBitsBufferU8", &Accessors::WriteBitsBufferU8),
 
     InstanceMethod("get", &Accessors::Get),
-    InstanceMethod("search", &Accessors::Search),
+    InstanceMethod("search", &Accessors::Search)
   });
 
   constructor = Napi::Persistent(func);
@@ -881,6 +882,16 @@ Napi::Value IsAddressValid(const Napi::CallbackInfo& info) {
   return TypeConv::FromBool(info.Env(), m_this->IsValidAddress(
     TypeConv::AsU32(info[0]) // address
   ));
+}
+
+Napi::Value Memset(const Napi::CallbackInfo& info) {
+  std::memset(const_cast<u8*>(m_this->begin()) +
+    TypeConv::AsU32(info[0]), // address
+    TypeConv::AsU8(info[1]),  // value
+    TypeConv::AsU32(info[2])  // size
+  );
+
+  return info.Env().Undefined();
 }
 
 Napi::Value ReadU8(const Napi::CallbackInfo& info) {

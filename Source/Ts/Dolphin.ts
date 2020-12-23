@@ -112,6 +112,7 @@ export enum Type {
 
 export interface Accessors {
   isValidAddress(address: number): boolean;
+  memset(address: number, value: number, size: number): void;
 
   readU8(address: number): number;
   readU16LE(address: number): number;
