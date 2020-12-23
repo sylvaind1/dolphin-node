@@ -13,6 +13,7 @@
 #include "Core/Core.h"
 
 #include "DolphinNode/Js/Frontend.h"
+#include "DolphinNode/Js/Memory.h"
 #include "DolphinNode/QtUtils/ModalMessageBox.h"
 #include "DolphinNode/QtUtils/RunOnObject.h"
 
@@ -79,6 +80,7 @@ bool QtMsgAlertHandler(const char* caption, const char* text, bool yes_no,
 
 Napi::Object ModuleEntryPoint(Napi::Env env, Napi::Object exports) {
   Js::Frontend::Init(env, exports);
+  Js::Memory::BuildExports(env, exports);
 
   return exports;
 }

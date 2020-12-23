@@ -299,6 +299,9 @@ add_library(dolphin-node SHARED ${CMAKE_JS_SRC}
   Updater.h
   Js/Frontend.cpp
   Js/Frontend.h
+  Js/Memory.cpp
+  Js/Memory.h
+  Js/TypeConv.h
 )
 
 if (NOT WIN32)
