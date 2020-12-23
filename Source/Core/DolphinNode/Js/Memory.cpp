@@ -255,15 +255,15 @@ static Napi::Value ReadU64LE(const Napi::CallbackInfo& info) {
 }
 
 static Napi::Value ReadF32LE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromF32(info.Env(), Common::BitCast<float>(::Memory::Read_U32(
+  return TypeConv::FromF32(info.Env(), Common::BitCast<float>(Common::swap32(::Memory::Read_U32(
     TypeConv::AsU32(info[0]) // address
-  )));
+  ))));
 }
 
 static Napi::Value ReadF64LE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromF64(info.Env(), Common::BitCast<double>(::Memory::Read_U64(
+  return TypeConv::FromF64(info.Env(), Common::BitCast<double>(Common::swap64(::Memory::Read_U64(
     TypeConv::AsU32(info[0]) // address
-  )));
+  ))));
 }
 
 static Napi::Value ReadU16BE(const Napi::CallbackInfo& info) {
@@ -285,15 +285,15 @@ static Napi::Value ReadU64BE(const Napi::CallbackInfo& info) {
 }
 
 static Napi::Value ReadF32BE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromF32(info.Env(), Common::BitCast<float>(Common::swap32(::Memory::Read_U32(
+  return TypeConv::FromF32(info.Env(), Common::BitCast<float>(::Memory::Read_U32(
     TypeConv::AsU32(info[0]) // address
-  ))));
+  )));
 }
 
 static Napi::Value ReadF64BE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromF64(info.Env(), Common::BitCast<double>(Common::swap64(::Memory::Read_U64(
+  return TypeConv::FromF64(info.Env(), Common::BitCast<double>(::Memory::Read_U64(
     TypeConv::AsU32(info[0]) // address
-  ))));
+  )));
 }
 
 static Napi::Value ReadS8(const Napi::CallbackInfo& info) {
@@ -407,8 +407,8 @@ static Napi::Value WriteU64LE(const Napi::CallbackInfo& info) {
 
 static Napi::Value WriteF32LE(const Napi::CallbackInfo& info) {
   ::Memory::Write_U32(
-    Common::BitCast<u32>(TypeConv::AsF32(info[1])), // value
-    TypeConv::AsU32(info[0])                        // address
+    Common::swap32(Common::BitCast<u32>(TypeConv::AsF32(info[1]))), // value
+    TypeConv::AsU32(info[0])                                        // address
   );
 
   return info.Env().Undefined();
@@ -416,8 +416,8 @@ static Napi::Value WriteF32LE(const Napi::CallbackInfo& info) {
 
 static Napi::Value WriteF64LE(const Napi::CallbackInfo& info) {
   ::Memory::Write_U64(
-    Common::BitCast<u64>(TypeConv::AsF64(info[1])), // value
-    TypeConv::AsU32(info[0])                        // address
+    Common::swap64(Common::BitCast<u64>(TypeConv::AsF64(info[1]))), // value
+    TypeConv::AsU32(info[0])                                        // address
   );
 
   return info.Env().Undefined();
@@ -452,8 +452,8 @@ static Napi::Value WriteU64BE(const Napi::CallbackInfo& info) {
 
 static Napi::Value WriteF32BE(const Napi::CallbackInfo& info) {
   ::Memory::Write_U32(
-    Common::swap32(Common::BitCast<u32>(TypeConv::AsF32(info[1]))), // value
-    TypeConv::AsU32(info[0])                                        // address
+    Common::BitCast<u32>(TypeConv::AsF32(info[1])), // value
+    TypeConv::AsU32(info[0])                        // address
   );
 
   return info.Env().Undefined();
@@ -461,8 +461,8 @@ static Napi::Value WriteF32BE(const Napi::CallbackInfo& info) {
 
 static Napi::Value WriteF64BE(const Napi::CallbackInfo& info) {
   ::Memory::Write_U64(
-    Common::swap64(Common::BitCast<u64>(TypeConv::AsF64(info[1]))), // value
-    TypeConv::AsU32(info[0])                                        // address
+    Common::BitCast<u64>(TypeConv::AsF64(info[1])), // value
+    TypeConv::AsU32(info[0])                        // address
   );
 
   return info.Env().Undefined();
@@ -547,15 +547,15 @@ static Napi::Value ReadPtrU64LE(const Napi::CallbackInfo& info) {
 }
 
 static Napi::Value ReadPtrF32LE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromF32(info.Env(), Common::BitCast<float>(::Memory::Read_U32(
+  return TypeConv::FromF32(info.Env(), Common::BitCast<float>(Common::swap32(::Memory::Read_U32(
     DerefPtrOffset(info) // address
-  )));
+  ))));
 }
 
 static Napi::Value ReadPtrF64LE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromF64(info.Env(), Common::BitCast<double>(::Memory::Read_U64(
+  return TypeConv::FromF64(info.Env(), Common::BitCast<double>(Common::swap64(::Memory::Read_U64(
     DerefPtrOffset(info) // address
-  )));
+  ))));
 }
 
 static Napi::Value ReadPtrU16BE(const Napi::CallbackInfo& info) {
@@ -577,15 +577,15 @@ static Napi::Value ReadPtrU64BE(const Napi::CallbackInfo& info) {
 }
 
 static Napi::Value ReadPtrF32BE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromF32(info.Env(), Common::BitCast<float>(Common::swap32(::Memory::Read_U32(
+  return TypeConv::FromF32(info.Env(), Common::BitCast<float>(::Memory::Read_U32(
     DerefPtrOffset(info) // address
-  ))));
+  )));
 }
 
 static Napi::Value ReadPtrF64BE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromF64(info.Env(), Common::BitCast<double>(Common::swap64(::Memory::Read_U64(
+  return TypeConv::FromF64(info.Env(), Common::BitCast<double>(::Memory::Read_U64(
     DerefPtrOffset(info) // address
-  ))));
+  )));
 }
 
 static Napi::Value ReadPtrS8(const Napi::CallbackInfo& info) {
@@ -699,8 +699,8 @@ static Napi::Value WritePtrU64LE(const Napi::CallbackInfo& info) {
 
 static Napi::Value WritePtrF32LE(const Napi::CallbackInfo& info) {
   ::Memory::Write_U32(
-    Common::BitCast<u32>(TypeConv::AsF32(info[2])), // value
-    DerefPtrOffset(info)                            // address
+    Common::swap32(Common::BitCast<u32>(TypeConv::AsF32(info[2]))), // value
+    DerefPtrOffset(info)                                            // address
   );
 
   return info.Env().Undefined();
@@ -708,8 +708,8 @@ static Napi::Value WritePtrF32LE(const Napi::CallbackInfo& info) {
 
 static Napi::Value WritePtrF64LE(const Napi::CallbackInfo& info) {
   ::Memory::Write_U64(
-    Common::BitCast<u64>(TypeConv::AsF64(info[2])), // value
-    DerefPtrOffset(info)                            // address
+    Common::swap64(Common::BitCast<u64>(TypeConv::AsF64(info[2]))), // value
+    DerefPtrOffset(info)                                            // address
   );
 
   return info.Env().Undefined();
@@ -744,8 +744,8 @@ static Napi::Value WritePtrU64BE(const Napi::CallbackInfo& info) {
 
 static Napi::Value WritePtrF32BE(const Napi::CallbackInfo& info) {
   ::Memory::Write_U32(
-    Common::swap32(Common::BitCast<u32>(TypeConv::AsF32(info[2]))), // value
-    DerefPtrOffset(info)                                            // address
+    Common::BitCast<u32>(TypeConv::AsF32(info[2])), // value
+    DerefPtrOffset(info)                            // address
   );
 
   return info.Env().Undefined();
@@ -753,8 +753,8 @@ static Napi::Value WritePtrF32BE(const Napi::CallbackInfo& info) {
 
 static Napi::Value WritePtrF64BE(const Napi::CallbackInfo& info) {
   ::Memory::Write_U64(
-    Common::swap64(Common::BitCast<u64>(TypeConv::AsF64(info[2]))), // value
-    DerefPtrOffset(info)                                            // address
+    Common::BitCast<u64>(TypeConv::AsF64(info[2])), // value
+    DerefPtrOffset(info)                            // address
   );
 
   return info.Env().Undefined();
@@ -919,15 +919,15 @@ Napi::Value ReadU64LE(const Napi::CallbackInfo& info) {
 }
 
 Napi::Value ReadF32LE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromF32(info.Env(), Common::BitCast<float>(m_this->ReadU32(
+  return TypeConv::FromF32(info.Env(), Common::BitCast<float>(Common::swap32(m_this->ReadU32(
     TypeConv::AsU32(info[0]) // address
-  )));
+  ))));
 }
 
 Napi::Value ReadF64LE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromF64(info.Env(), Common::BitCast<double>(m_this->ReadU64(
+  return TypeConv::FromF64(info.Env(), Common::BitCast<double>(Common::swap64(m_this->ReadU64(
     TypeConv::AsU32(info[0]) // address
-  )));
+  ))));
 }
 
 Napi::Value ReadU16BE(const Napi::CallbackInfo& info) {
@@ -949,15 +949,15 @@ Napi::Value ReadU64BE(const Napi::CallbackInfo& info) {
 }
 
 Napi::Value ReadF32BE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromF32(info.Env(), Common::BitCast<float>(Common::swap32(m_this->ReadU32(
+  return TypeConv::FromF32(info.Env(), Common::BitCast<float>(m_this->ReadU32(
     TypeConv::AsU32(info[0]) // address
-  ))));
+  )));
 }
 
 Napi::Value ReadF64BE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromF64(info.Env(), Common::BitCast<double>(Common::swap64(m_this->ReadU64(
+  return TypeConv::FromF64(info.Env(), Common::BitCast<double>(m_this->ReadU64(
     TypeConv::AsU32(info[0]) // address
-  ))));
+  )));
 }
 
 Napi::Value ReadS8(const Napi::CallbackInfo& info) {
@@ -1071,8 +1071,8 @@ Napi::Value WriteU64LE(const Napi::CallbackInfo& info) {
 
 Napi::Value WriteF32LE(const Napi::CallbackInfo& info) {
   m_this->WriteU32(
-    TypeConv::AsU32(info[0]),                                      // address
-    Common::swap32(Common::BitCast<u32>(TypeConv::AsF32(info[1]))) // value
+    TypeConv::AsU32(info[0]),                      // address
+    Common::BitCast<u32>(TypeConv::AsF32(info[1])) // value
   );
 
   return info.Env().Undefined();
@@ -1080,8 +1080,8 @@ Napi::Value WriteF32LE(const Napi::CallbackInfo& info) {
 
 Napi::Value WriteF64LE(const Napi::CallbackInfo& info) {
   m_this->WriteU64(
-    TypeConv::AsU32(info[0]),                                      // address
-    Common::swap64(Common::BitCast<u64>(TypeConv::AsF64(info[1]))) // value
+    TypeConv::AsU32(info[0]),                      // address
+    Common::BitCast<u64>(TypeConv::AsF64(info[1])) // value
   );
 
   return info.Env().Undefined();
@@ -1116,8 +1116,8 @@ Napi::Value WriteU64BE(const Napi::CallbackInfo& info) {
 
 Napi::Value WriteF32BE(const Napi::CallbackInfo& info) {
   m_this->WriteU32(
-    TypeConv::AsU32(info[0]),                      // address
-    Common::BitCast<u32>(TypeConv::AsF32(info[1])) // value
+    TypeConv::AsU32(info[0]),                                      // address
+    Common::swap32(Common::BitCast<u32>(TypeConv::AsF32(info[1]))) // value
   );
 
   return info.Env().Undefined();
@@ -1125,8 +1125,8 @@ Napi::Value WriteF32BE(const Napi::CallbackInfo& info) {
 
 Napi::Value WriteF64BE(const Napi::CallbackInfo& info) {
   m_this->WriteU64(
-    TypeConv::AsU32(info[0]),                      // address
-    Common::BitCast<u64>(TypeConv::AsF64(info[1])) // value
+    TypeConv::AsU32(info[0]),                                      // address
+    Common::swap64(Common::BitCast<u64>(TypeConv::AsF64(info[1]))) // value
   );
 
   return info.Env().Undefined();
