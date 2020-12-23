@@ -901,21 +901,21 @@ Napi::Value ReadU8(const Napi::CallbackInfo& info) {
 }
 
 Napi::Value ReadU16LE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromU16(info.Env(), m_this->ReadU16(
+  return TypeConv::FromU16(info.Env(), Common::swap16(m_this->ReadU16(
     TypeConv::AsU32(info[0]) // address
-  ));
+  )));
 }
 
 Napi::Value ReadU32LE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromU32(info.Env(), m_this->ReadU32(
+  return TypeConv::FromU32(info.Env(), Common::swap32(m_this->ReadU32(
     TypeConv::AsU32(info[0]) // address
-  ));
+  )));
 }
 
 Napi::Value ReadU64LE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromU64(info.Env(), m_this->ReadU64(
+  return TypeConv::FromU64(info.Env(), Common::swap64(m_this->ReadU64(
     TypeConv::AsU32(info[0]) // address
-  ));
+  )));
 }
 
 Napi::Value ReadF32LE(const Napi::CallbackInfo& info) {
@@ -931,21 +931,21 @@ Napi::Value ReadF64LE(const Napi::CallbackInfo& info) {
 }
 
 Napi::Value ReadU16BE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromU16(info.Env(), Common::swap16(m_this->ReadU16(
+  return TypeConv::FromU16(info.Env(), m_this->ReadU16(
     TypeConv::AsU32(info[0]) // address
-  )));
+  ));
 }
 
 Napi::Value ReadU32BE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromU32(info.Env(), Common::swap32(m_this->ReadU32(
+  return TypeConv::FromU32(info.Env(), m_this->ReadU32(
     TypeConv::AsU32(info[0]) // address
-  )));
+  ));
 }
 
 Napi::Value ReadU64BE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromU64(info.Env(), Common::swap64(m_this->ReadU64(
+  return TypeConv::FromU64(info.Env(), m_this->ReadU64(
     TypeConv::AsU32(info[0]) // address
-  )));
+  ));
 }
 
 Napi::Value ReadF32BE(const Napi::CallbackInfo& info) {
@@ -967,39 +967,39 @@ Napi::Value ReadS8(const Napi::CallbackInfo& info) {
 }
 
 Napi::Value ReadS16LE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromS16(info.Env(), static_cast<s16>(m_this->ReadU16(
-    TypeConv::AsU32(info[0]) // address
-  )));
-}
-
-Napi::Value ReadS32LE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromS32(info.Env(), static_cast<s32>(m_this->ReadU32(
-    TypeConv::AsU32(info[0]) // address
-  )));
-}
-
-Napi::Value ReadS64LE(const Napi::CallbackInfo& info) {
-  return TypeConv::FromS64(info.Env(), static_cast<s64>(m_this->ReadU64(
-    TypeConv::AsU32(info[0]) // address
-  )));
-}
-
-Napi::Value ReadS16BE(const Napi::CallbackInfo& info) {
   return TypeConv::FromS16(info.Env(), static_cast<s16>(Common::swap16(m_this->ReadU16(
     TypeConv::AsU32(info[0]) // address
   ))));
 }
 
-Napi::Value ReadS32BE(const Napi::CallbackInfo& info) {
+Napi::Value ReadS32LE(const Napi::CallbackInfo& info) {
   return TypeConv::FromS32(info.Env(), static_cast<s32>(Common::swap32(m_this->ReadU32(
     TypeConv::AsU32(info[0]) // address
   ))));
 }
 
-Napi::Value ReadS64BE(const Napi::CallbackInfo& info) {
+Napi::Value ReadS64LE(const Napi::CallbackInfo& info) {
   return TypeConv::FromS64(info.Env(), static_cast<s64>(Common::swap64(m_this->ReadU64(
     TypeConv::AsU32(info[0]) // address
   ))));
+}
+
+Napi::Value ReadS16BE(const Napi::CallbackInfo& info) {
+  return TypeConv::FromS16(info.Env(), static_cast<s16>(m_this->ReadU16(
+    TypeConv::AsU32(info[0]) // address
+  )));
+}
+
+Napi::Value ReadS32BE(const Napi::CallbackInfo& info) {
+  return TypeConv::FromS32(info.Env(), static_cast<s32>(m_this->ReadU32(
+    TypeConv::AsU32(info[0]) // address
+  )));
+}
+
+Napi::Value ReadS64BE(const Napi::CallbackInfo& info) {
+  return TypeConv::FromS64(info.Env(), static_cast<s64>(m_this->ReadU64(
+    TypeConv::AsU32(info[0]) // address
+  )));
 }
 
 Napi::Value ReadBufferU8(const Napi::CallbackInfo& info) {
@@ -1044,8 +1044,8 @@ Napi::Value WriteU8(const Napi::CallbackInfo& info) {
 
 Napi::Value WriteU16LE(const Napi::CallbackInfo& info) {
   m_this->WriteU16(
-    TypeConv::AsU32(info[0]), // address
-    TypeConv::AsU16(info[1])  // value
+    TypeConv::AsU32(info[0]),                // address
+    Common::swap16(TypeConv::AsU16(info[1])) // value
   );
 
   return info.Env().Undefined();
@@ -1053,8 +1053,8 @@ Napi::Value WriteU16LE(const Napi::CallbackInfo& info) {
 
 Napi::Value WriteU32LE(const Napi::CallbackInfo& info) {
   m_this->WriteU32(
-    TypeConv::AsU32(info[0]), // address
-    TypeConv::AsU32(info[1])  // value
+    TypeConv::AsU32(info[0]),                // address
+    Common::swap32(TypeConv::AsU32(info[1])) // value
   );
 
   return info.Env().Undefined();
@@ -1062,8 +1062,8 @@ Napi::Value WriteU32LE(const Napi::CallbackInfo& info) {
 
 Napi::Value WriteU64LE(const Napi::CallbackInfo& info) {
   m_this->WriteU64(
-    TypeConv::AsU32(info[0]), // address
-    TypeConv::AsU64(info[1])  // value
+    TypeConv::AsU32(info[0]),                // address
+    Common::swap64(TypeConv::AsU64(info[1])) // value
   );
 
   return info.Env().Undefined();
@@ -1089,8 +1089,8 @@ Napi::Value WriteF64LE(const Napi::CallbackInfo& info) {
 
 Napi::Value WriteU16BE(const Napi::CallbackInfo& info) {
   m_this->WriteU16(
-    TypeConv::AsU32(info[0]),                // address
-    Common::swap16(TypeConv::AsU16(info[1])) // value
+    TypeConv::AsU32(info[0]), // address
+    TypeConv::AsU16(info[1])  // value
   );
 
   return info.Env().Undefined();
@@ -1098,8 +1098,8 @@ Napi::Value WriteU16BE(const Napi::CallbackInfo& info) {
 
 Napi::Value WriteU32BE(const Napi::CallbackInfo& info) {
   m_this->WriteU32(
-    TypeConv::AsU32(info[0]),                // address
-    Common::swap32(TypeConv::AsU32(info[1])) // value
+    TypeConv::AsU32(info[0]), // address
+    TypeConv::AsU32(info[1])  // value
   );
 
   return info.Env().Undefined();
@@ -1107,8 +1107,8 @@ Napi::Value WriteU32BE(const Napi::CallbackInfo& info) {
 
 Napi::Value WriteU64BE(const Napi::CallbackInfo& info) {
   m_this->WriteU64(
-    TypeConv::AsU32(info[0]),                // address
-    Common::swap64(TypeConv::AsU64(info[1])) // value
+    TypeConv::AsU32(info[0]), // address
+    TypeConv::AsU64(info[1])  // value
   );
 
   return info.Env().Undefined();
