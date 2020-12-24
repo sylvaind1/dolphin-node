@@ -1,5 +1,6 @@
 #pragma once
 
+#include <QApplication>
 #include <QObject>
 
 #include <array>
@@ -9,7 +10,6 @@
 
 #include <napi.h>
 
-class QApplication;
 class MainWindow;
 class Settings;
 

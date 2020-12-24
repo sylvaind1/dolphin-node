@@ -262,7 +262,7 @@ else()
 
   # gcc uses some optimizations which might break stuff without this flag
   check_and_add_flag(NO_STRICT_ALIASING -fno-strict-aliasing)
-  check_and_add_flag(NO_EXCEPTIONS -fno-exceptions)
+  # check_and_add_flag(NO_EXCEPTIONS -fno-exceptions)
 
   check_and_add_flag(VISIBILITY_INLINES_HIDDEN -fvisibility-inlines-hidden)
   check_and_add_flag(VISIBILITY_HIDDEN -fvisibility=hidden)
@@ -309,7 +309,7 @@ if(CMAKE_SYSTEM_NAME MATCHES "Darwin")
   #
   # TODO: Only enable this for Objective-C(++).
   # We get warnings if we enable this when building regular C(++) code.
-  check_and_add_flag(NO_OBJC_EXCEPTIONS -fno-objc-exceptions)
+  # check_and_add_flag(NO_OBJC_EXCEPTIONS -fno-objc-exceptions)
 
   find_library(APPKIT_LIBRARY AppKit)
   find_library(APPSERV_LIBRARY ApplicationServices)
