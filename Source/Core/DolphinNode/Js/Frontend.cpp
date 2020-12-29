@@ -62,7 +62,7 @@ Napi::Object Frontend::Init(Napi::Env env, Napi::Object exports) {
 }
 
 Frontend::Frontend(const Napi::CallbackInfo& info) :
-  Napi::ObjectWrap<Frontend>{info}
+  Napi::ObjectWrap<Frontend>{info}, m_states{}
 {}
 
 static Frontend::CreateInfo GetCreateInfoFromObject(const Napi::Object& obj) {
